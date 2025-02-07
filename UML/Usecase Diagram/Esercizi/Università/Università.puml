@@ -1,0 +1,74 @@
+UC Scenario: Sistema di Gestione dell’Università
+
+Il rettore di un’università è la figura principale del sistema di gestione dell’università. Le sue funzionalità principali includono la gestione degli studenti, la definizione dei corsi e la supervisione delle attività accademiche. Gli utenti si dividono in:
+
+	•	Studenti
+	•	Professori
+	•	Personale amministrativo
+
+Tutti gli utenti possono richiedere colloqui privati con il rettore.
+
+Gli studenti possono iscriversi ai corsi, visualizzare i risultati e accedere alle risorse online. L’accesso alle risorse online prevede l’autenticazione dell’utente, per motivi di sicurezza.
+
+I professori possono definire i programmi, valutare gli studenti e caricare materiali didattici, previa autenticazione del docente.
+Il personale amministrativo ha il compito di gestire le iscrizioni, generare report e mantenere aggiornato l’archivio degli studenti.
+Il personale amministrativo può mandare solleciti agli studenti morosi, solo se effettivamente lo studente risulta moroso dall’archivio.
+
+@startuml
+:Rettore: as a1
+:Studenti: as a2
+:Professori: as a3
+:Personale amministrativo: as a4
+
+Rectangle FunzionalitàRettore as r1{
+    (Gestione Studenti) as fr1
+    (Definizione Corsi) as fr2
+    (Supervisione Attività) as fr3
+}
+
+(Colloqui Privati con rettore) as fr4
+
+Rectangle FunzionalitàStudenti as r2{
+    (Iscriversi Corsi) as fs1
+    (Visualizzare Risultati) as fs2
+    (Accedere risorse online) as fs3
+}
+
+(Autenticazione Utente) as fs4
+
+Rectangle FunzionalitàProfessori as r3{
+    (Definire Programmi) as fp1
+    (Valutare Studenti) as fp2
+    (Caricare Materiali Didattici) as fp3
+}
+
+(Autenticazione Docente) as fp4
+
+Rectangle PersonaleAmministrativo as r4{
+    (Gestire Iscrizioni) as fa1
+    (Generare Report) as fa2
+    (Mantenere aggiornato archivio studenti) as fa3
+    (Inviare solleciti agli studenti morosi) as fas1
+}
+
+a1 --> r1
+
+a2 --> fr4
+a3 --> fr4
+a4 --> fr4
+
+a2 --> r2
+a2 --> fs4
+fs4 --> fs3
+
+fp1 ..|> fp4 : include
+fp2 ..|> fp4 : include
+fp3 ..|> fp4 : include
+
+a3 --> r3
+
+a4 --> r4
+a4 --> fas1
+
+fas1 .u.> fa3 : { Studente moroso nell'archivio }
+@enduml
