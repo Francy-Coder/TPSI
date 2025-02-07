@@ -1,0 +1,61 @@
+Primi esercizi di Progettazione SW
+UC Diagrams
+
+Primi esercizi di Progettazione SW	1
+Esercizio 1: Gestione di un cinema multisala	1
+Esercizio 2: Gestione di una piattaforma per freelance	1
+Esercizio 3: Sistema per una smart home	2
+Esercizio 4: Gestione di un ospedale digitale	2
+Esercizio 5: Sistema di gestione per un negozio di videogiochi online	2
+Memorandum	3
+
+Esercizio 1: Gestione di un cinema multisala
+Il sistema di gestione di un cinema multisala deve garantire diverse funzionalità per attori differenti:
+I Visitatori del sito possono visualizzare la programmazione dei film e registrarsi per ottenere un account.
+Gli Utenti Registrati possono prenotare biglietti scegliendo posti specifici, acquistare abbonamenti per sconti sui biglietti e gestire la cronologia delle prenotazioni.
+Gli Impiegati si occupano della gestione delle sale, assegnando film e orari alle proiezioni, e verificano le prenotazioni effettuate dagli utenti.
+Gli Amministratori hanno funzioni aggiuntive, come la gestione del personale, il controllo degli incassi e la generazione di report mensili sulle vendite.
+Il sistema prevede alcune funzionalità specifiche:
+Durante la prenotazione, un utente può aggiungere snack e bevande al carrello 
+Gli utenti con abbonamento possono usufruire di sconti
+Un controllo automatico verifica la disponibilità dei posti prima di concludere una prenotazione 
+
+Esercizio 2: Gestione di una piattaforma per freelance
+Una piattaforma online permette ai freelance di offrire servizi ai clienti. Gli attori principali del sistema sono:
+I Clienti, che possono registrarsi, cercare freelance per categoria (es. design, scrittura, programmazione), richiedere preventivi e inviare pagamenti per i lavori completati.
+I Freelance, che possono creare un profilo dettagliato con il portfolio, rispondere alle richieste di preventivo e caricare i lavori completati per i clienti.
+Gli Amministratori, che gestiscono l’approvazione dei nuovi account, monitorano le transazioni economiche e intervengono in caso di dispute tra clienti e freelance.
+Ci sono inoltre alcune funzionalità avanzate:
+I clienti possono scegliere di avviare un progetto con scadenza urgente pagando una tariffa extra
+I freelance possono acquistare un piano Premium per ottenere maggiore visibilità nei risultati di ricerca
+Prima di iniziare un progetto, viene sempre verificata la disponibilità del freelance per le date richieste 
+Esercizio 3: Sistema per una smart home
+Un sistema di gestione per una casa intelligente deve integrare diverse funzionalità e supportare più tipi di utenti:
+Il Proprietario della casa può configurare il sistema, aggiungere nuovi dispositivi (es. luci, termostati, videocamere), definire regole di automazione (es. accendi luci al tramonto) e monitorare i consumi energetici.
+Gli Ospiti autorizzati possono interagire con i dispositivi, accendere o spegnere luci e regolare la temperatura, ma non possono modificare le configurazioni del sistema.
+Gli Amministratori del sistema sono tecnici che intervengono per aggiornare il software, risolvere problemi tecnici e monitorare eventuali guasti.
+Alcuni casi d’uso richiedono funzionalità aggiuntive:
+La configurazione delle regole di automazione include sempre un controllo per evitare conflitti tra le regole definite Gli ospiti possono scegliere di accedere a funzionalità avanzate, come impostare scene personalizzate (es. modalità "serata film")
+
+Esercizio 4: Gestione di un ospedale digitale
+Un ospedale vuole implementare un sistema per digitalizzare le sue operazioni principali:
+I Pazienti possono prenotare visite mediche, accedere ai propri referti e richiedere un rinnovo delle prescrizioni.
+I Medici possono visualizzare l’agenda delle visite, aggiornare la cartella clinica del paziente e approvare le richieste di rinnovo delle prescrizioni.
+Gli Amministratori del sistema gestiscono gli account dei medici, monitorano il sistema e generano statistiche sulle attività dell’ospedale.
+Funzionalità specifiche:
+Ogni prenotazione di una visita deve includere la verifica della disponibilità del medico richiesto 
+In caso di emergenze, i pazienti possono richiedere visite prioritarie, ma questa opzione è soggetta a limitazioni
+Esercizio 5: Sistema di gestione per un negozio di videogiochi online
+Un negozio online di videogiochi desidera sviluppare un sistema con diverse funzionalità per gli utenti:
+I Visitatori possono cercare giochi, leggere recensioni e registrarsi per un account.
+Gli Utenti Registrati possono acquistare giochi, scaricarli e partecipare al programma fedeltà per guadagnare punti sui loro acquisti.
+Gli Amministratori possono aggiungere nuovi giochi al catalogo, modificare i dettagli dei giochi esistenti e gestire le recensioni degli utenti.
+Funzionalità aggiuntive:
+Ogni acquisto include il controllo automatico della validità del metodo di pagamento 
+I partecipanti al programma fedeltà possono sbloccare sconti esclusivi su determinati giochi 
+
+Memorandum
+Uno UCD non è un flow chart
+MAI avere punte che partono da uno UC e vanno verso un attore
+tra attori è possibile la generalizzazione
+Se si definisce una relazione di inclusione o estensione la freccia è tratteggiate e sicuramente con la punta
