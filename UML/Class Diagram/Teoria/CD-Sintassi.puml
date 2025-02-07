@@ -1,0 +1,32 @@
+@startuml
+class NomeClasse1 {
+    -campo1
+    -meotodoPrivato():String
+    +metodoPubblicco():int
+    +metodoConParams(x:String):double
+
+}
+
+class Classe2{
+    {static} +metod()
+}
+
+abstract class AbsClass{
+    {abstract} +method()
+}
+
+class C {
+    -x:Classe2[]
+}
+
+NomeClasse1 <|-- Classe2
+AbsClass <|- C
+
+C "1" --> "1..*" Classe2
+
+@enduml
+
+Static > statico è sottolineato
+Abstract > astratto è in corsivo
+y:C > direzionalità
+C "1" --> "1..*" Classe2 > molteciplità
