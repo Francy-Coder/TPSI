@@ -1,0 +1,57 @@
+Primi esercizi Class Diagram
+Esercizio 1: Definizione di una classe semplice
+Descrizione:
+Crea un class diagram per rappresentare un semplice modello di una "Automobile".
+Includi i seguenti dettagli:
+
+Attributi:
+marca (String)
+modello (String)
+anno (int)
+Metodi:
+accendiMotore(): public, restituisce void.
+spegniMotore(): public, restituisce void.
+calcolaValoreAttuale(): private, restituisce un double.
+Indica il livello di visibilità (pubblico o privato) per ogni attributo e metodo.
+
+Esercizio 2: Relazione tra classi
+Descrizione:
+Modella un sistema per una biblioteca. Disegna un class diagram con le seguenti classi:
+
+Libro con attributi titolo, autore, ISBN.
+Utente con attributi nome, email.
+Ogni Utente può prendere in prestito più Libri, ma un libro può essere preso in prestito solo da un utente alla volta.
+
+Mostra:
+Gli attributi e metodi principali per ciascuna classe.
+La relazione di molteplicità tra le classi.
+Esercizio 3: Ereditarietà
+Descrizione:
+Un negozio di animali vuole rappresentare diversi tipi di animali. Disegna un class diagram con:
+
+Una classe generica Animale con attributi nome e età e un metodo emettiVerso().
+Due classi derivate:
+Cane, con un metodo aggiuntivo abbaia().
+Gatto, con un metodo aggiuntivo faLeFusa().
+Specifica l'ereditarietà tra le classi.
+
+Esercizio 4: Relazioni e metodi
+Descrizione:
+Modella un sistema per la gestione di ordini di un negozio online. Disegna un class diagram con:
+
+Una classe Ordine con attributi numeroOrdine, data, totale.
+Una classe Cliente con attributi nome, email.
+Una classe Prodotto con attributi nomeProdotto, prezzo.
+Ogni ordine può contenere più prodotti, ma un prodotto può essere incluso in diversi ordini. Un cliente può effettuare più ordini.
+Aggiungi almeno un metodo rilevante per ciascuna classe.
+
+Esercizio 5: Modello di sistema scolastico
+Descrizione:
+Progetta un class diagram per rappresentare un sistema scolastico base. Includi:
+
+Una classe Studente con attributi matricola, nome, cognome.
+Una classe Corso con attributi codiceCorso, nomeCorso.
+Una classe Docente con attributi nome, materia.
+Ogni corso è tenuto da un docente, e ciascun corso può essere frequentato da più studenti. Ogni studente può seguire più corsi. 
+Mostra le molteplicità e le relazioni.
+
