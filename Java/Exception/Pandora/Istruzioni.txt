@@ -1,0 +1,32 @@
+Pandora - Alla Ricerca dell'Unobtanium
+
+Si vuole implementare un sistema in Java per gestire un raid Na'vi durante l'estrazione di unobtanium da parte della RDA nel mondo di Avatar. Il sistema include diverse classi per rappresentare gli attori coinvolti e deve gestire le eccezioni in situazioni critiche. L'obiettivo è simulare un contesto realistico di conflitto tra i Na'vi e la RDA durante il processo di estrazione.
+
+Requisiti:
+Classe Coordinata
+Questa classe implementa le coordinate secondo il formato latitudine-longitudine.
+Si ricorda che valori di longitudine minori di -180.0° o maggiori di 180.0° non sono accettabili.
+Si ricorda che valori di latitudine minori di -90.0° o maggiori di 90.0° non sono accettabili.
+Si sollevi una IllegalArgumentException in entrambi questi casi.
+Classe Avatar
+La classe Avatar rappresenta un membro della tribù Na'vi coinvolto nel raid.
+Ha attributi come nome, arma e forzaAttacco.
+Implementa il metodo attacca(PostazioneRDA) che simula l'attacco a una postazione RDA. 
+Un avatar ha una certa probabilità di effettuare davvero un attacco. Questo metodo lancia un'eccezione controllata custom AttaccoFallitoException se l'attacco di un avatar non viene effettuato.
+Se un avatar effettua un attacco, c’è comunque la probabilità che la sua arma non funzioni. Questo metodo lancia un'eccezione controllata custom ArmaMalfunzionanteException se l'arma del Na'vi è malfunzionante durante l'attacco.
+Per simulare queste probabilità potrebbe tornare utile il metodo Math.random() e controllare il suo valore.
+Classe PostazioneRDA
+La classe RDA rappresenta un operatore dell'azienda RDA coinvolto nell'estrazione di unobtanium.
+Ha attributi come la sua posizione espressa come coordinata, difesa e un valore che identifica quanto unbtanium rimane ancora da minare.
+Implementa il metodo difendi(int) che simula la difesa di una postazione RDA.
+Questo metodo lancia un'eccezione custom controllata DifesaInsufficienteException se la difesa della postazione RDA è insufficiente a resistere all'attacco Na'vi.
+Se ciò accade bisognerà cambiare la posizione della postazione RDA e assegnare un nuovo valore di difesa.
+Se ciò non accade la difesa della postazione RDA verrà aggiornata con la differenza tra il suo valore attuale e l’attacco ricevuto. Inoltre verrà decrementato di una unità il valore delle miniere, per simulare un avvenuto mining.
+Questo metodo lancia un'eccezione UnobtaniumEsauritoException se le miniere di unobtanium sono esaurite.
+Quando ciò accade bisognerà spostare la postazione RDA in un altra coordinata e assegnare un numero randomico tra 1 e 11 alle miniere di Unobtanium.
+Classe RaidSimulator
+Contiene un array di oggetti Avatar e un oggetto postazioneRDA.
+Implementa il metodo eseguiRaid() che simula l'intero raid, inclusi gli attacchi dei Na'vi e la difesa della RDA.
+iniziano gli attaccanti, per ogni attacco la postazione reagisce secondo la sua difesa e come specificato in precedenza.
+Si simulino almeno 10 raid. Per temporizzare l’esecuzione si può utilizzare Thread.sleep(int millis)
+Questo comando interrompe per X millisecondi il programma, per poi farlo riprendere
