@@ -1,0 +1,67 @@
+@startuml
+:Capo Polizia: as CapoPolizia
+
+:Dipendenti: as Dipendenti
+:Detective: as Detective
+:Agenti di pattuglia: as AgentiPattuglia
+:Sergenti di Scrivania: as SergentiScrivania
+
+:Sindaco Los Bosques: as Sindaco
+
+:Sospettati: as Sospettati
+
+:Testimoni: as Testimoni
+:Cittadino comune: as CittadinoComune
+:VIP: as VIP
+
+rectangle FunzionalitàCapo as FunzionalitàCapo {
+  (Classificare fascicoli dei casi salvati) as ClassificareFascicoli
+  (Organizzare incontri privati) as OrganizzareIncontriPrivati
+  OrganizzareIncontriPrivati ..> Sindaco
+}
+
+rectangle FunzionalitàAgenti as FunzionalitàAgenti {
+  (Pattugliare le strade) as PattugliareStrade
+  (Aggiornare su situazioni illegali) as AggiornareSituazioniIllegali
+  AggiornareSituazioniIllegali --> Archivio : Aggiornare
+}
+
+rectangle FunzionalitàDetectiveSergenti as FunzionalitàDetectiveSergenti {
+  (Interrogare i sospettati) as InterrogareSospettati
+  (Investigate crimini) as InvestigareCrimini
+  InterrogareSospettati --> Sospettati
+  InvestigareCrimini --> Archivio : Aggiornare
+}
+
+rectangle FunzionalitàDetective as FunzionalitàDetective {
+  (Interrogare i testimoni) as InterrogareTestimoni
+  InterrogareTestimoni --> Testimoni
+  Testimoni --> CittadinoComune : Se cittadino comune
+  Testimoni --> VIP : Se VIP
+  VIP ..> Sindaco : Approvazione
+}
+
+rectangle Rapporto as Rapporto {
+  (Rapportare al capo di Polizia) as Rapportare
+}
+
+rectangle Archivio as Archivio {
+}
+
+CapoPolizia --> Dipendenti
+CapoPolizia --> FunzionalitàCapo
+ClassificareFascicoli --> Archivio
+
+Dipendenti ..> Rapporto : Rapportare
+CapoPolizia ..> Rapporto
+
+Dipendenti --> Detective
+Dipendenti --> AgentiPattuglia
+Dipendenti --> SergentiScrivania
+
+AgentiPattuglia --> FunzionalitàAgenti
+
+SergentiScrivania --> FunzionalitàDetectiveSergenti
+Detective --> FunzionalitàDetectiveSergenti
+Detective --> FunzionalitàDetective
+@enduml
