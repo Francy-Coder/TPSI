@@ -1,0 +1,34 @@
+@startuml
+:Visitatore: as visitor
+:Utente Registrato: as user
+:Amministratore: as admin
+
+rectangle System {
+  (Cerca giochi) as searchGames
+  (Leggi recensioni) as readReviews
+  (Registrazione) as register
+  (Acquisto gioco) as purchase
+  (Download gioco) as download
+  (Programma fedeltà) as loyaltyProgram
+  (Aggiunta gioco) as addGame
+  (Modifica dettagli gioco) as modifyGame
+  (Gestione recensioni) as manageReviews
+  (Verifica pagamento) as verifyPayment
+}
+
+visitor --> searchGames
+visitor --> readReviews
+visitor --> register
+
+user --> searchGames
+user --> readReviews
+user --> purchase
+user --> download
+user --> loyaltyProgram
+
+admin --> addGame
+admin --> modifyGame
+admin --> manageReviews
+
+purchase --> verifyPayment
+@enduml

@@ -1,0 +1,41 @@
+@startuml
+:Client: as cl
+:Freelance: as fl
+:Amministratore: as admin
+
+rectangle System {
+  (Registrazione) as reg
+  (Ricerca freelance) as search
+  (Richiesta preventivo) as request
+  (Pagamento) as payment
+  (Valutazione) as rating
+  (Creazione profilo) as createProfile
+  (Offerta servizi) as offer
+  (Risposta richiesta) as response
+  (Caricamento lavori) as upload
+  (Acquisto piano Premium) as premium
+  (Approvazione account) as ap
+  (Monitoraggio transazioni) as monitor
+  (Gestione dispute) as dispute
+  (Verifica disponibilità) as availability
+}
+
+cl --> reg
+cl --> search
+cl --> request
+cl --> payment
+cl --> rating
+
+fl --> createProfile
+fl --> offer
+fl --> response
+fl --> upload
+fl --> premium
+
+admin --> ap
+admin --> monitor
+admin --> dispute
+
+request --> availability
+offer --> availability
+@enduml
