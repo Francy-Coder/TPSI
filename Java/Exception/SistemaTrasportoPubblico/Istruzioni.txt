@@ -1,0 +1,6 @@
+Realizzare un'applicazione per la gestione dei mezzi di trasporto pubblico. Creare eccezioni per gestire le seguenti situazioni:
+Un'eccezione controllata FermataNonTrovataException per gestire il caso in cui una fermata specificata non esista.
+Un'eccezione controllata BigliettoScadutoException per gestire l'uso di un biglietto scaduto.
+Un'eccezione non controllata TragittoAnnullatoException per segnalare l'annullamento inaspettato di un tragitto.
+Un'eccezione non controllata InputNonValidoException per gestire input non validi durante la prenotazione di un viaggio.
+Si implementi il sistema di trasporto pubblico e e ci si assicuri di gestire correttamente queste (e le eventuali altre eccezioni) nelle operazioni di prenotazione e utilizzo del sistema.
