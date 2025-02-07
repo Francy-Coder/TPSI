@@ -1,1 +1,17 @@
+Si vuole progettare un sistema per la gestione di un campionato di calcio.
 
+Il sistema deve consentire la creazione del calendario delle partite e la designazione
+degli arbitri (da parte della FIGC).
+
+L'arbitro avrà il compito di memorizzare nel sistema, a fine gara, il risultato finale.
+
+Ogni squadra ha un proprio allenatore che decide quali giocatori convocare per le
+varie partite.
+
+E facoltà della presidenza delle squadre acquistare e vendere giocatori o cambiare
+allenatore.
+
+Infine, la FIGC vuole poter stampare la classifica e la schedina relativa alle diverse
+giornate di un particolare girone.
+
+Tracciare il diagramma degli use case.
