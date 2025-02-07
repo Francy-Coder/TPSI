@@ -1,0 +1,22 @@
+@startuml
+:FirstActor: as a1
+:Second Actor: as a2
+:Client:
+:SubClient:
+
+rectangle system {
+(eat)
+(jump)
+(estrai chiavi)
+(login utente) as lu
+(login profilo) as cp
+(open the door) as ot
+}
+
+Client <|-- SubClient
+(estrai chiavi) <.. ot : <<include>>
+a1 -> ot
+a2 -- ot
+a2 -- lu
+lu <.. cp : <<extend>>
+@enduml
