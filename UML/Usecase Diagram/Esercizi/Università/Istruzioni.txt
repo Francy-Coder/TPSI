@@ -1,0 +1,15 @@
+UC		Scenario: Sistema di Gestione dell’Università
+
+Il rettore di un’università è la figura principale del sistema di gestione dell’università. Le sue funzionalità principali includono la gestione degli studenti, la definizione dei corsi e la supervisione delle attività accademiche. Gli utenti si dividono in:
+
+	•	Studenti
+	•	Professori
+	•	Personale amministrativo
+
+Tutti gli utenti possono richiedere colloqui privati con il rettore. 
+
+Gli studenti possono iscriversi ai corsi, visualizzare i risultati e accedere alle risorse online. L’accesso alle risorse online prevede l’autenticazione dell’utente, per motivi di sicurezza.
+
+I professori possono definire i programmi, valutare gli studenti e caricare materiali didattici, previa autenticazione del docente. 
+Il personale amministrativo ha il compito di gestire le iscrizioni, generare report e mantenere aggiornato l’archivio degli studenti. 
+Il personale amministrativo può mandare solleciti agli studenti morosi, solo se effettivamente lo studente risulta moroso dall’archivio.
