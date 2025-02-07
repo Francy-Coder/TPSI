@@ -1,0 +1,20 @@
+Stazione di Polizia Los Bosques
+
+Si vuole creare uno Use Case Diagram che rappresenta la nuova stazione di polizia della
+città di Los Bosques.
+Il capo di Polizia è la figura più importante della stazione. Le sue funzionalità più importanti
+sono quelle di classificare i fascicoli dei casi salvati nell’archivio delle prove della stazione ed
+organizzare incontri privati con il sindaco di Los Bosques.
+I dipendenti si dividono in:
+● Detective
+● Agenti di pattuglia
+● Sergenti di Scrivania
+Tutti i dipendenti, indipendentemente dal ruolo, devono fare rapporto al capo di Polizia.
+Gli agenti di pattuglia hanno il solo compito di pattugliare le strade e aggiornare l’archivio
+delle prove se notano qualche situazione illegale.
+I detective e i Sergenti di Scrivania possono interrogare i sospettati e investigare i crimini,
+aggiornando sempre l’archivio delle prove.
+Solo i detective possono interrogare i testimoni. Se il testimone è un cittadino comune la
+procedura non prevede alcun tipo di specificità, ma se il testimone è un VIP l’interrogatorio
+deve prima essere approvato dal sindaco con opportuno colloquio organizzato dal Detective.
+Si sviluppi lo Use Case diagram relativo a questo scenario.
