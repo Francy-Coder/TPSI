@@ -1,0 +1,16 @@
+Disegnare il diagramma delle classi della seguente specifica:
+
+In un ristorante è possibile richiedere i piatti elencati nel
+menù.
+
+I piatti vengono tutti preparati ma ciascuno ha un modo
+diverso per essere cucinato.
+
+I piatti presenti nel menù sono:
+- Pasta condita con uno dei sughi disponibili
+- Sughi: bolognese, siciliana, matriciana
+- Secondi piatti: frittata, caprese, carne alla griglia
+- Contorni: verdure grigliate, impanate, fritte
+- Dolci: mascarpone, torta di pinoli, torta della nonna
+
+I piatti vengono preparati da un cuoco.
