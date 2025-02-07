@@ -1,0 +1,17 @@
+Sistema Monitoraggio prigione
+
+Si vuole progettare un Class Diagram del nuovo sistema di monitoraggio di una
+prigione.
+In generale la prigione può gestire più sistemi di monitoraggio. In questa versione
+base si vogliono implementare solo due sistemi:
+1. Monitoraggio Temperatura
+2. Monitoraggio Movimento
+Ogni sistema di monitoraggio è costituito da un gruppo di sensori specifici e deve
+permettere di calcolare delle statistiche periodicamente.
+Su ogni sensore si può eseguire la diagnostica, ovviamente in maniera specifica per
+ogni tipo di sensore. Ogni sensore può essere acceso e spento secondo procedure
+specifiche per ogni sensore.
+Ogni sensore avrà un modo specifico per attenersi alla sua funzione.
+I sensori possono essere riallocati su altri sistemi di monitoraggio ma un sistema di
+monitoraggio è specifico per una prigione e non può essere portato su altri istituti.
+Si costruisca un Class Diagram per questo
