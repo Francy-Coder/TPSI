@@ -1,0 +1,110 @@
+@startuml
+class Piatti {
+  +nome: String
+  +descrizione: String
+  +preparare(): void
+}
+
+class Pasta {
+  +tipoSugo: Sugo
+  +preparare(): void
+}
+
+class Sugo {
+  +nome: String
+  +preparare(): void
+}
+
+class Bolognese {
+  +preparare(): void
+}
+
+class Siciliana {
+  +preparare(): void
+}
+
+class Matriciana {
+  +preparare(): void
+}
+
+class SecondoPiatto {
+  +nome: String
+  +preparare(): void
+}
+
+class Frittata {
+  +preparare(): void
+}
+
+class Caprese {
+  +preparare(): void
+}
+
+class CarneAllaGriglia {
+  +preparare(): void
+}
+
+class Contorno {
+  +nome: String
+  +preparare(): void
+}
+
+class VerdureGrigliate {
+  +preparare(): void
+}
+
+class Impanate {
+  +preparare(): void
+}
+
+class Fritte {
+  +preparare(): void
+}
+
+class Dolce {
+  +nome: String
+  +preparare(): void
+}
+
+class Mascarpone {
+  +preparare(): void
+}
+
+class TortaDiPinoli {
+  +preparare(): void
+}
+
+class TortaDellaNonna {
+  +preparare(): void
+}
+
+class Cuoco {
+  +nome: String
+  +prepararePiatti(piatto: Piatti): void
+}
+
+' Relazioni
+Piatti <|-- Pasta
+Piatti <|-- SecondoPiatto
+Piatti <|-- Contorno
+Piatti <|-- Dolce
+
+Pasta --> Sugo
+Sugo <|-- Bolognese
+Sugo <|-- Siciliana
+Sugo <|-- Matriciana
+
+SecondoPiatto <|-- Frittata
+SecondoPiatto <|-- Caprese
+SecondoPiatto <|-- CarneAllaGriglia
+
+Contorno <|-- VerdureGrigliate
+Contorno <|-- Impanate
+Contorno <|-- Fritte
+
+Dolce <|-- Mascarpone
+Dolce <|-- TortaDiPinoli
+Dolce <|-- TortaDellaNonna
+
+Cuoco --> Piatti
+@enduml
