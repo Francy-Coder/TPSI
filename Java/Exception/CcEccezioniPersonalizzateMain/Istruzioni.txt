@@ -1,0 +1,8 @@
+Si sviluppi una semplice applicazione Java che gestisce un CC.
+
+Un generico CC è identificato dal nome del correntista e dal saldo
+
+
+L'applicazione, per ragioni di business, deve prevedere l'implementazione di due eccezioni controllate:
+SaldoInsufficienteException, viene sollevata quando si cerca di prelevare una cifra maggiore del saldo disponibile.
+CifraNegativaException, sollevata quando si tenta di prelevare o depositare una cifra minore di zero.
