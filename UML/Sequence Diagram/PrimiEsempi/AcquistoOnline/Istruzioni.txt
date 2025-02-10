@@ -1,1 +1,8 @@
+Acquisto Online
+Realizza un diagramma di sequenza per il processo di acquisto su un e-commerce.
 
+L'utente seleziona un prodotto e lo aggiunge al carrello.
+Procede al checkout e inserisce i dettagli di pagamento.
+Il sistema verifica il pagamento.
+Se il pagamento va a buon fine, l'ordine viene confermato.
+Se il pagamento fallisce, viene mostrato un errore.
