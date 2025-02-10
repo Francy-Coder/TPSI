@@ -1,13 +1,13 @@
 @startuml
 
-User -> LoginForm: Inserisce credenziali
-LoginForm -> AuthServer: Verifica credenziali
-AuthServer -> LoginForm: Credenziali corrette?
+Utente -> FormDiLogin: Inserisce credenziali
+FormDiLogin -> ServerDiAutenticazione: Verifica credenziali
+ServerDiAutenticazione -> FormDiLogin: Credenziali corrette?
 
 alt Credenziali corrette
-    LoginForm -> Dashboard: Mostra dashboard
+    FormDiLogin -> Dashboard: Mostra dashboard
 else Credenziali errate
-    LoginForm -> ErrorMessage: Mostra messaggio di errore
+    FormDiLogin -> MessaggioDiErrore: Mostra messaggio di errore
 end
 
 @enduml
