@@ -1,0 +1,15 @@
+@startuml
+
+Utente -> PaginaProdotto: Seleziona prodotto
+PaginaProdotto -> Carrello: Aggiunge prodotto al carrello
+Utente -> PaginaCheckout: Procede al checkout e inserisce dettagli di pagamento
+PaginaCheckout -> GatewayDiPagamento: Verifica pagamento
+GatewayDiPagamento -> PaginaCheckout: Pagamento riuscito?
+
+alt Pagamento riuscito
+    PaginaCheckout -> ConfermaOrdine: Conferma ordine
+else Pagamento fallito
+    PaginaCheckout -> MessaggioDiErrore: Mostra errore
+end
+
+@enduml
