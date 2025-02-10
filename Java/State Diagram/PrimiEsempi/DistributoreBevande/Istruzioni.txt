@@ -1,0 +1,12 @@
+Distributore Bevande
+
+Modella il comportamento di un distributore automatico di bevande. Gli stati possibili sono:
+Attesa (attende monete)
+Credito Inserito (se è stato inserito denaro sufficiente)
+Erogazione (la macchina sta erogando la bevanda)
+Resto (se c'è resto da dare)
+Le transizioni devono includere:
+Inserimento monete sufficienti
+Selezione della bevanda
+Erogazione della bevanda
+Rilascio del resto (se necessario)
