@@ -1,0 +1,16 @@
+@startuml
+
+Utente -> PaginaPrenotazione: Cerca camera disponibile
+PaginaPrenotazione -> Database: Verifica disponibilità
+Database -> PaginaPrenotazione: Camera disponibile?
+
+alt Camera disponibile
+    Utente -> PaginaPrenotazione: Conferma prenotazione e inserisce dati di pagamento
+    PaginaPrenotazione -> GatewayDiPagamento: Elabora pagamento
+    GatewayDiPagamento -> PaginaPrenotazione: Pagamento riuscito
+    PaginaPrenotazione -> PaginaDiConferma: Genera conferma
+else Camera non disponibile
+    PaginaPrenotazione -> MessaggioDiErrore: Mostra messaggio di errore
+end
+
+@enduml
