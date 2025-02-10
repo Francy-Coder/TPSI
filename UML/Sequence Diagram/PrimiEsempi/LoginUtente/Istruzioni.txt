@@ -1,0 +1,7 @@
+Login Utente
+Realizza un diagramma di sequenza per il processo di login di un utente.
+
+L'utente inserisce le credenziali nel form(pagina) di login.
+Il sistema, tramite un auth server, verifica le credenziali.
+Se le credenziali sono corrette, il sistema mostra la dashboard.
+Se le credenziali sono errate, il sistema mostra un messaggio di errore
