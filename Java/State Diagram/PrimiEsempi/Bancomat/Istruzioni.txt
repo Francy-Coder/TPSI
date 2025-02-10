@@ -1,0 +1,14 @@
+Bancomat
+  
+Modella il funzionamento di un bancomat con i seguenti stati:
+Idle (schermata iniziale)
+Inserimento Carta
+Inserimento PIN
+Selezione Operazione
+Prelievo / Versamento / Controllo Saldo
+Espulsione Carta
+Le transizioni devono includere:
+Inserimento della carta
+Inserimento del PIN (corretto o errato)
+Scelta di un'operazione (prelievo, versamento, saldo)
+Ritiro della carta al termine
