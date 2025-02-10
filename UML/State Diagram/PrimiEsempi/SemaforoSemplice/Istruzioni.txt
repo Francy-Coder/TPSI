@@ -1,0 +1,3 @@
+Semaforo Semplice 
+
+Modella lo stato di un semaforo con tre colori: Rosso, Giallo, Verde. Il semaforo deve passare tra questi stati in ordine ciclico
