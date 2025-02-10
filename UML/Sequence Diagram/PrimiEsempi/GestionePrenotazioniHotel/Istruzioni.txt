@@ -1,0 +1,8 @@
+Gestione Prenotazioni Hotel
+
+Realizza un diagramma di sequenza per il processo di prenotazione di un hotel.
+L'utente cerca una camera disponibile.
+Il sistema verifica la disponibilità nel database.
+Se c'è disponibilità, l'utente conferma la prenotazione e inserisce i dati di pagamento.
+Il sistema elabora il pagamento e genera una conferma.
+Se la camera non è disponibile, il sistema mostra un messaggio di errore.
