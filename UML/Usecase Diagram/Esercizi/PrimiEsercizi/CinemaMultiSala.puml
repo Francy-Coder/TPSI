@@ -1,54 +1,56 @@
 @startuml
-:Visitatori del sito: as a1
-:Utenti Registrati: as a2
+
+:VisitatoriSito: as a1
+:UtentiRegistrati: as a2
 :Impiegati: as a3
 :Amministratori: as a4
 
-rectangle system{
-  (programmazione film) as pf
-  (account) as ac
-
-  (biglietti) as bi
-  (posti specifici) as ps
-  (abbonamenti) as ab
-  (cronologia prenotazioni) as cp
-
-  (gestione sale) as ga
-  (film) as fi
-  (orari proiezioni) as ap
-  (prenotazioni effetuate) as pe
-
-  (gestione personale) as gp
-  (controllo incassi) as ci
-  (generazione di report mensili sulle vendite) as rm
+Rectangle FunzionalitaVisitatoriSito as r1{
+	(Programmazione dei film) as fv1
+	(Registrarsi) as fv2
+	(Account) as sfv2
 }
 
-rectangle system{
-  (snack) as sn
-  (bevande) as be
-  (carrello) as ca
+a1 --> r1 
+fv2 --> sfv2 : ottenere
 
-  (sconti) as sc
-
-  (disponibilità posti) as ds
+Rectangle FunzionalitaUtentiRegistrati as r2{
+	(Prenotare biglietti) as fu1
+	(Posti specifici) as sfu1
+	
+	(Acquistare abbonamenti) as fu2
+	(Gestire cronologia prenotazioni) as fu3
 }
 
-a1 --> pf
-a1 --> ac
+a2 --> r2
+fu1 --> sfu1 : scegliendo
+fu2 --> fu1 : sconti
 
-a2 --> bi
-a2 --> ca
-bi --> ps
-ab --> sc
-sc --> bi
-a2 --> cp
+Rectangle FunzionalitaImpiegati as r3{
+	(Gestione sale) as fi1
+	(Film e orari alle proiezioni) as sfi1
+	
+	(Verificano) as fi2
+}
 
-a3 --> ga
-a3 --> pe
+a3 --> r3
+fi1 --> sfi1 : assegnando
+fi2 --> fu1
 
-a4 --> gp
-a4 --> ci
-a4 --> rm
-a4 --> ab
+Rectangle FunzionalitaAmministratori as r4 {
+	(Gestione personale) as fa1
+	(Controllo incassi) as fa2
+	(Generazione di report mensili sulle vendite) as fa3
+}
+
+a4 --> r4
+
+Rectangle FunzionalitaSpecifiche as r5{
+	(Snack e bevande) as fs1
+	(ControlloAutomatico disponibilitaPosti) as fs2
+}
+
+fu1 --> fs1 : aggiungere al carello
+fu1 --> fs2
 
 @enduml
