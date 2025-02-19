@@ -29,6 +29,7 @@ Ci sono inoltre alcune funzionalità avanzate:
 I clienti possono scegliere di avviare un progetto con scadenza urgente pagando una tariffa extra
 I freelance possono acquistare un piano Premium per ottenere maggiore visibilità nei risultati di ricerca
 Prima di iniziare un progetto, viene sempre verificata la disponibilità del freelance per le date richieste 
+
 Esercizio 3: Sistema per una smart home
 Un sistema di gestione per una casa intelligente deve integrare diverse funzionalità e supportare più tipi di utenti:
 Il Proprietario della casa può configurare il sistema, aggiungere nuovi dispositivi (es. luci, termostati, videocamere), definire regole di automazione (es. accendi luci al tramonto) e monitorare i consumi energetici.
