@@ -1,41 +1,38 @@
 @startuml
-:Client: as cl
-:Freelance: as fl
-:Amministratore: as admin
 
-rectangle System {
-  (Registrazione) as reg
-  (Ricerca freelance) as search
-  (Richiesta preventivo) as request
-  (Pagamento) as payment
-  (Valutazione) as rating
-  (Creazione profilo) as createProfile
-  (Offerta servizi) as offer
-  (Risposta richiesta) as response
-  (Caricamento lavori) as upload
-  (Acquisto piano Premium) as premium
-  (Approvazione account) as ap
-  (Monitoraggio transazioni) as monitor
-  (Gestione dispute) as dispute
-  (Verifica disponibilità) as availability
+:Clienti: as a1
+:Freelance: as a2
+:Amministratori: as a3
+
+rectangle FunzionalitaClienti as r1 {
+    (Registrarsi) as fc1
+    (Cercare freelance per categoria) as fc2
+    (Ricevere preventivi) as fc3
+    (Inviare pagamenti) as fc4
+    (Lavori completati) as sfc1
+    (Avviare progetto urgente con tariffa extra) as sfc2
 }
 
-cl --> reg
-cl --> search
-cl --> request
-cl --> payment
-cl --> rating
+rectangle FunzionalitaFreelance as r2 {
+    (Creare profilo con portfolio) as ff1
+    (Rispondere alle richieste di preventivo) as ff2
+    (Caricare i lavori completati per i clienti) as ff3
+    (Acquistare piano Premium) as ssff1
+    (Maggiore visibilità nei risultati di ricerca) as sssff1
+}
 
-fl --> createProfile
-fl --> offer
-fl --> response
-fl --> upload
-fl --> premium
+rectangle FunzionalitaAmministratori as r3 {
+    (Gestire approvazione nuovi account) as fa1
+    (Monitorare transazioni economiche) as fa2
+    (Intervenire in caso di dispute tra clienti e freelance) as fa3
+}
 
-admin --> ap
-admin --> monitor
-admin --> dispute
+a1 --> r1
+a2 --> r2
+a3 --> r3
 
-request --> availability
-offer --> availability
+fc4 --> sfc1 : per
+sfc2 --> fc4 : pagamento extra
+ssff1 --> sssff1 : conferisce
+
 @enduml
