@@ -1,0 +1,39 @@
+Sanremo Voting System (SVS)
+
+Descrizione dell’applicazione:
+
+Si desidera implementare un sistema di votazione per il Festival di Sanremo in Java. Il sistema comprende diverse classi che gestiscono la registrazione delle canzoni, l'assegnazione dei voti da parte dei votanti, e le eccezioni che possono verificarsi durante questo processo. L'obiettivo è simulare un contesto realistico di votazione durante il festival.
+
+Requisiti (si vede CD allegato per una rappresentazione grafica):
+
+Classe Canzone:
+
+La classe Canzone rappresenta una singola canzone partecipante al Festival.
+Ha attributi come titolo, artista, e voti.
+Implementa un metodo che assegna un voto alla canzone. È possibile assegnare un voto compreso tra 1 e 10.
+Lanciare un'eccezione VotoInvalidoException se si tenta di assegnare un voto non compreso tra 1 e 10.
+Lanciare un'eccezione CanzoneGiàVotataException se si tenta di votare una canzone che ha già ricevuto un voto.
+
+
+Classe Votante
+La classe Votante rappresenta un partecipante al televoto.
+Ha attributi come nome e budgetVoti, che rappresenta il numero totale di voti che il votante può assegnare.
+Implementa un metodo che consente al votante di assegnare un voto a una canzone.
+Lanciare un'eccezione VotoInvalidoException se si tenta di assegnare un voto non compreso tra 1 e 10.
+Lanciare un'eccezione LimiteVotiSuperatoException se il budget di voti del votante è insufficiente per assegnare il voto.
+Lanciare un'eccezione CanzoneGiàVotataException se si tenta di assegnare un secondo voto alla stessa canzone.
+
+Classe Votazione
+La classe Votazione gestisce l'intero processo di votazione.
+Contiene un array di oggetti Canzone e un array di oggetti Votante.
+Implementa un metodo che permette ai votanti di assegnare voti alle canzoni utilizzando il loro budget.
+Lanciare un'eccezione CanzoneNonTrovataException se si cerca di votare una canzone che non è presente nell'elenco.
+Lanciare un'eccezione LimiteVotiSuperatoException se il totale dei voti supera il limite massimo consentito.
+
+
+
+Eccezioni:
+
+Implementare le eccezioni controllate VotoInvalidoException, LimiteVotiSuperatoException, CanzoneNonTrovataException, e CanzoneGiàVotataException.
+Personalizzare i messaggi delle eccezioni in modo appropriato e informativo.
+
