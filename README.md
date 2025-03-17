@@ -1,2 +1,2 @@
 # TPSI
-Repository per Esercizi e Teoria di TPSI
+Repository per Pratica e Teoria di TPSI
