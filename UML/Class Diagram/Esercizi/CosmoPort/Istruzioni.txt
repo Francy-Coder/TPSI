@@ -1,0 +1,16 @@
+Il Consiglio Galattico ha commissionato lo sviluppo di un sistema di gestione per la stazione spaziale “CosmoPort”, il principale hub per i viaggi interstellari e il commercio galattico.
+Moduli Operativi e Funzionalità
+Modulo di Imbarco
+Gestisce il check-in dei viaggiatori e il rilascio dei passaggi per i viaggi interstellari.
+Ogni viaggiatore deve essere registrato e autenticato mediante sistemi biometrici avanzati.
+Gli operatori del check-in devono poter accedere a dati in tempo reale per garantire la sicurezza e l’efficienza delle operazioni.
+Modulo di Logistica
+Supervisiona il carico e lo scarico delle merci intergalattiche.
+Coordina un sistema di trasporto automatico per la movimentazione dei container, integrando dati provenienti da vari sensori.
+In caso di emergenza, il modulo deve poter bloccare immediatamente le operazioni e notificare il Centro di Controllo.
+Modulo di Manutenzione
+Coordinato dal Responsabile della Manutenzione, gestisce squadre tecniche composte da un numero variabile di tecnici (minimo 4, massimo 10).
+Le squadre si occupano della manutenzione ordinaria e straordinaria di astronavi e droni di supporto.
+Ogni intervento viene registrato in un sistema centrale per pianificare attività preventive e correttive.
+Consegna
+Realizzare un Diagramma delle Classi (plantUML) da tradurre in linguaggio Java, evidenziando le relazioni, le associazioni e le variazioni tra le entità.
