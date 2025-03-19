@@ -1,0 +1,13 @@
+Il Sindaco di NeoTokyo ha affidato lo sviluppo di un sistema avanzato per il controllo e la gestione della città futuristica, dove innovazione e sicurezza devono integrarsi per garantire il benessere dei cittadini.
+Attori e Ruoli
+Incarichi Politici
+Consiglieri della Città: Hanno il diritto di inviare comunicazioni di emergenza a tutti i cittadini tramite canali centralizzati. Possono anche convocare riunioni del Consiglio Comunale nella Sala delle Decisioni.
+Capo Consigliere: Possiede tutte le autorizzazioni dei consiglieri ordinari ed è l’unico abilitato a organizzare incontri diretti con il Sindaco, previo rilascio di un permesso speciale.
+Incarichi di Sicurezza
+Centro Operativo di Sicurezza: Composto dai dirigenti del Corpo di Guardia Cittadina, monitora la città in tempo reale tramite sistemi di sorveglianza avanzati.
+In caso di rilevamento di minacce, il Centro può attivare il protocollo di difesa urbana, a condizione che un sistema di intelligence confermi l’intrusione.
+Ha l’autorità di dichiarare lo stato di emergenza, previa approvazione istantanea del Sindaco in un colloquio diretto che comporta il rilascio di un’autorizzazione speciale.
+Incarichi Tecnici
+Ministero dell’Innovazione Tecnologica: Responsabile dell’infrastruttura digitale della città, gestisce le squadre di manutenzione e l’aggiornamento del software critico.
+Solo il Direttore Tecnico può autorizzare modifiche che incidono significativamente sulla sicurezza del sistema.
+Tutte le operazioni devono essere tracciate e registrate per garantire trasparenza.
