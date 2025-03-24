@@ -1,0 +1,41 @@
+Esercizio - Il Gelato Cosmico di Zarglax 🍦🚀
+
+Descrizione:
+Sul pianeta ghiacciato di Glax-9, gli alieni Zarglax hanno costruito il più grande distributore automatico di gelato dell’universo. Questa macchina mastodontica fluttua nello spazio, generando infiniti coni gelato per nutrire le forme di vita intergalattiche. 
+Il problema? Il sistema sta andando in tilt! 🤪
+
+Se il distributore cresce troppo, rischia di collassare in un buco nero. Se invece si ferma per troppo tempo, gli alieni potrebbero ribellarsi, scatenando il caos su Glax-9.
+
+Richieste Implementative:
+
+1. Distributore di Gelato:
+a. Crea la classe DistributoreGalattico con gli attributi altezza, flavorIndex e temperatura.
+b. Ogni secondo (che simula un’ora spaziale), il distributore si espande di un valore X metri, fino a un massimo di Y metri.
+c. Se l’altezza massima viene raggiunta, si deve lanciare GelatoOverloadException e avviare il protocollo di compressione criogenica, riducendo la grandezza della macchina a metà.
+
+
+2. Effetti Interstellari:
+a. Con il 20% di probabilità, il gelato prodotto cambia sapore in modo casuale, aggiornando flavorIndex e stampando un nuovo gusto alieno (es. "Neutrino alla fragola quantica").
+b. Con il 15% di probabilità, una tempesta di zucchero spaziale congela il distributore, fermandolo per 4 secondi. Si deve lanciare CosmicSugarStormException.
+c. Con il 5% di probabilità, si verifica un "paradosso gelatinoso", in cui la temperatura del gelato scende sotto lo zero assoluto, violando le leggi della fisica. In tal caso, si lancia ThermodynamicViolationException e il programma si interrompe.
+
+
+3. Influenza degli Zarglax:
+a. Se per più di 7 cicli non accade nulla di strano, gli alieni iniziano a sospettare. La macchina entrerà in Modalità Zarglax, facendo partire un countdown che, se raggiunge lo zero, farà esplodere il distributore con RebellionException.
+b. Se la temperatura scende troppo, il gelato si solidifica e diventa arma da guerra. A questo punto, gli alieni iniziano a usarlo come proiettili, e il programma si conclude con un messaggio epico.
+
+
+4. Output:
+
+Deve essere stampato lo stato attuale del distributore, inclusi altezza, sapore attuale e temperatura, per ogni ciclo.
+
+Gli eventi devono essere descritti in maniera drammatica e assurda, just for fun.
+
+
+5. Gestione del tempo:
+
+Si utilizzi Thread.sleep(int millis), senza gestire InterruptedException.
+
+
+
+
