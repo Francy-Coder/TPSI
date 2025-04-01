@@ -1,0 +1,38 @@
+@startuml
+title UC-Naboo
+
+:Senatore: as s
+:Senatore Anziano: as sa
+:Gran Consiglio dei Soldati: as sol
+:Regina: as r
+:Ministero: as min
+
+(Organizzare consignli dei senatori) as cons
+(Accedere ai canali broadcast) as broad
+(Identificare senatore) as id
+s -- cons
+s -- broad
+
+broad ..> id : <<include>>
+
+sa --|> s
+(Organizzare colloqui con Regina) as collReq
+sa --> collReq
+(Erogare autorizzazione speciale) as specReq
+
+collReq ..> specReq : <<include>>
+
+r -- collReq
+specReq ..> id : <<include>>
+
+(Assegnare truppe) as tr
+(Attivare scudo) as sc
+(Gestore sistema intelligence) as int
+(Dichiara guerra) as gr
+sol -- tr
+sol -- int
+sc ..> int : <<extend>>
+sol -- gr
+gr ..> collReq
+min -- (eleggere cariche civili)
+@enduml
