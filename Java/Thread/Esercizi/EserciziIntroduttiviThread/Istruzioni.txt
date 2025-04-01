@@ -1,0 +1,35 @@
+Esercizi introduttivi Thread (No sincronizzazione)
+1. Gara di Thread 🏁
+Crea 3 thread che rappresentano 3 corridori in una gara. Ogni corridore deve stampare "Sto correndo..." in loop con una pausa casuale (tra 100 e 500 ms). Vince chi stampa "Taglio il traguardo!" per primo.
+
+2. Thread Bomb 💣 (Countdown con sorpresa)
+Crea un thread che fa un countdown da 10 a 0. Se l'utente preme "ENTER" prima che il countdown finisca, stampa "Bomba disinnescata!". Se il countdown arriva a 0, stampa "💥 BOOM!".
+
+3. Thread Hacker vs. Firewall 🕵️‍♂️💻
+Un thread "Hacker" cerca di forzare un accesso (stampa "Tentativo di accesso n..."). Un altro thread "Firewall" stampa "Intruso bloccato!" ogni 3 tentativi dell'hacker. Dopo 10 tentativi, stampa "Accesso concesso!" e termina.
+
+4. Concert Jam Session 🎸🥁🎤
+Crea tre thread che simulano una band:
+Chitarra: stampa "🎸 Strum..." ogni 400ms
+Batteria: stampa "🥁 Boom..." ogni 600ms
+Cantante: stampa "🎤 Yeahhh!" ogni 1000ms
+ Fai partire la band e lasciali suonare per 10 secondi prima di fermarli!
+
+5. Thread Pit Stop 🏎️⚙️
+Crea 3 thread che rappresentano auto da corsa. Ogni auto corre stampando "Velocità attuale: X km/h". Ogni 5 iterazioni, deve fermarsi per un pit stop di 2 secondi prima di ripartire.
+
+6. Roulette Russa con Thread 🔫
+Crea 6 thread che rappresentano giocatori di una roulette russa. Uno solo di loro stampa "BANG! Sono fuori!" mentre gli altri stampano "Sono salvo!". Il "colpo" viene assegnato casualmente.
+
+7. Barman e Clienti 🍹
+Un thread rappresenta il barman, e altri 5 thread rappresentano clienti che chiedono cocktail. Il barman prepara un cocktail in 2 secondi e poi serve un cliente. Il cliente servito stampa "Grazie per il cocktail!".
+
+8. The Matrix Effect 
+Crea un thread che stampa lettere casuali in stile "Matrix" per 10 secondi, cambiando riga ogni mezzo secondo. Per effetto matrix si intende la stampa di un carattere a caso, andando a capo dopo ogni stampa.
+
+9. Zombie Apocalypse 🧟‍♂️
+Un thread rappresenta un sopravvissuto e altri 5 thread rappresentano zombie che lo inseguono. Gli zombie stampano "Sto arrivando..." ogni 1 secondo. Il sopravvissuto può "scappare" (terminare gli zombie) con un input dell'utente. Se non lo fa entro 10 secondi, stampa "Sei stato morso!" e il programma termina.
+
+10. Thread AI Chatbot 🤖
+Crea un thread che simula un chatbot che risponde a domande casuali ogni 3 secondi. Nel frattempo, il main thread lascia l’utente digitare comandi. Se l’utente scrive "STOP", il chatbot si ferma.
+
