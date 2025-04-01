@@ -1,0 +1,58 @@
+@startuml
+abstract class Cliente{
+-nome:String
+-indirizzo:String
+}
+
+class Droide{
+-modello:String
+}
+class Umano{
+-eta:int
+}
+class VIP{
+-bonus:float
+}
+
+class Agenzia{
+-clienti:List<Cliente>
+-polizze.List<Policy>
++checkValidità(c:Contratto)
++computerDurata(c:Contratto))
+}
+
+class Contratto{
+-numero:int
+-dataInizio:Date
+-dataFine:Date
+-import:double
+-cliente:Cliente
+-policies:List<Policy>
++isValido():boolean
+}
+
+abstract class Policy{
+-testo:String
+}
+
+class RCNavicella{}
+class Furto{}
+class Vita{}
+
+Cliente <|-- Droide
+Cliente <|-- Umano
+Cliente <|-- VIP
+
+Policy <|-- RCNavicella
+Policy <|-- Furto
+Policy <|-- Vita
+
+Agenzia "1" --> "*" Cliente
+
+Contratto "1" o-- "1..*" Policy
+
+Agenzia ..> Contratto
+
+Agenzia "1" o-- "1..*" Policy
+Cliente -- Contratto
+@enduml
