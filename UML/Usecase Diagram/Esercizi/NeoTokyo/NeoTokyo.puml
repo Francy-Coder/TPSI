@@ -1,0 +1,51 @@
+@startuml
+'' keyword title serve solo per mettere, unironically, un titolo
+title NeoTokyo City UC
+
+:Sindaco NeoTokyo: as s
+:Consigliere NeoTokyo: as c
+:Capo Consigliere: as cc
+:Sistema Intelligence: as SI
+
+:Centro Operativo Sicurezza: as COS
+:Ministero dell'Innovazione Tecnica: as MIT
+:Direttor Tecnico: as DT
+
+(Inviare comunicazioni di emergenza ai cittadini) as comCitt
+(Convocare riunioni del Consiglio Comunale) as riu
+(Organizzare incontri diretto con Sindaco) as riuS
+(Emettere autorizzazione speciale) as specAuth
+(Dichiarare Stato di Emergenza) as DSE
+(Gestire Squadre di Manutenzione) as gsm
+(Aggiornare SW Critico) as aswc
+(Autorizzare modifiche sicurezza critiche) as aac
+
+
+usecase mon as "Monitorare la città
+--
+E.P.: se minaccia rilevata da COS e confermata da SI"
+(Attivare Protocollo Difesa Urbana) as PDU
+
+note left of riuS : Questo UC è condiviso tra\nCC(attivo) e Sindaco(passivo)
+
+cc -|> c
+DT --|> MIT
+
+c -- comCitt
+c -- riu
+cc --> riuS
+s -- riuS
+riuS ..> specAuth : <<include>>
+
+COS --> mon
+mon <.. PDU : <<extend>>
+SI -- mon
+
+COS -- DSE
+DSE ..> riuS : <<include>>
+
+MIT -- gsm
+MIT -- aswc
+
+DT -- aac
+@enduml
