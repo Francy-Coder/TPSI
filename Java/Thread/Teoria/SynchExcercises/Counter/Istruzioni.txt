@@ -1,0 +1,6 @@
+1) Scrivere class Counter, che simula un contatore
+Implementate un metodo add che aggiunge un valore al contatore (parametro)
+
+2) Creare nel Main dei Thread che lavorano sul contatore incocorrenza.
+Ogni thread somma 1 x 10k volte nel contatore.
+Come posso fare a rendere noto ai thread il contnatore? Il contatore è unico!
