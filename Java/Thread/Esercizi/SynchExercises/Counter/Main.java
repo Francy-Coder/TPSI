@@ -1,27 +1,19 @@
+//t1.run(); < Sbagliato, perchè non si entra nella scheduler, quindi non è in concorrenza
+
+import java.util.ArrayList;
 public class Main {
     public static void main(String[] args) {
         //Creare N Thread che vanno a lavorare sul
-        Counter counter = new Counter();
-
-        int numberOfThreads = 10;
-        Thread[] threads = new Thread[numberOfThreads];
-
-        for (int i = 0; i < numberOfThreads; i++) {
-            threads[i] = new Thread(new CounterThread(counter));
+        Counter c = new Counter();
+        
+        ArrayList<Thread> threads = new ArrayList<>();
+        
+        //Creo N threads
+        for(int i = 0; i < 4; i++){
+            threads.add(new CounterThread(c));
         }
-
-        for (Thread thread : threads) {
-            thread.start();
-        }
-
-        for (Thread thread : threads) {
-            try {
-                thread.join();
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-        }
-
-        System.out.println("Valore finale del contatore: " + counter.getValue());
+        
+        //Li faccio partire
+        for (Thread t : threads) t.start();
     }
 }
