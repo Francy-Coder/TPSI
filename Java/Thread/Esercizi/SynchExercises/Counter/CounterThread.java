@@ -3,7 +3,7 @@ public class CounterThread extends Thread {
 
     //Ogni istanza di questo thread deve sommare 1 al contatore (Unico) x 10k volte
 
-    private final Counter counter;
+    private Counter counter;
 
     public CounterThread(Counter counter) {
         this.counter = counter;
