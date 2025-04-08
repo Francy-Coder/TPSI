@@ -13,7 +13,7 @@ public class Main {
             threads.add(new CounterThread(c));
         }
 
-        //Li faccio partire
+        //Li faccio partire 
         for (Thread t : threads) t.start();
 
         for (Thread t : threads){
