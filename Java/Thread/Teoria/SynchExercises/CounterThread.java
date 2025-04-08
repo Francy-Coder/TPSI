@@ -1,5 +1,4 @@
 import java.util.concurrent.Semaphore;
-
 public class CounterThread extends Thread {
     //E' meglio estendere Thread, visto che se si implementa la classe runnable, si puo solo usare il metodo run
 
@@ -7,7 +6,7 @@ public class CounterThread extends Thread {
 
     private Counter counter;
 
-    private static final Semaphore sem = new Semaphore(4);
+    private static final Semaphore sem = new Semaphore(1);
 
     public CounterThread(Counter counter) {
         this.counter = counter;
@@ -22,6 +21,7 @@ public class CounterThread extends Thread {
                 System.out.println("Interrotto");
             }
             counter.add(1);
+            sem.release();
         }
     }
 }
