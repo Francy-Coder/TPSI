@@ -9,8 +9,8 @@ public class Counter {
         value -= amount;
     }
 
-    public synchronized void mult(float factor) {
-        value *= factor;
+    public synchronized void mult(float amount) {
+        value *= amount;
     }
 
     public float getValue() {
