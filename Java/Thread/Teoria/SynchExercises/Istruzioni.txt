@@ -4,3 +4,9 @@ Implementate un metodo add che aggiunge un valore al contatore (parametro)
 2) Creare nel Main dei Thread che lavorano sul contatore incocorrenza.
 Ogni thread somma 1 x 10k volte nel contatore.
 Come posso fare a rendere noto ai thread il contnatore? Il contatore è unico!
+
+3) Implementate i metodi mult() e sub() in Counter
+4) Create Thread che fanno solo sub di 1 x 10k volte nel counter
+5) Create Thread che fanno solo mult() 2x2volte. Nel counter..
+6) Sposate la sincronizzazione nella classe Counter.
+I THREAD NON DEVONO GEsTIRE LA SYNCH
