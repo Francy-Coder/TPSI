@@ -2,28 +2,23 @@ import java.util.ArrayList;
 public class Main {
     public static void main(String[] args) {
         Counter c = new Counter();
-
         ArrayList<Thread> threads = new ArrayList<>();
 
-        // Create threads for addition
         for (int i = 0; i < 4; i++) {
-            threads.add(new CounterThread(c, CounterThread.Operation.ADD));
+            threads.add(new CounterThread(c));
         }
 
-        // Create threads for subtraction
         for (int i = 0; i < 4; i++) {
-            threads.add(new CounterThread(c, CounterThread.Operation.SUB));
+            threads.add(new SubCounterThread(c));
+        }
+        for (int i = 0; i < 4; i++) {
+            threads.add(new MultCounterThread(c));
         }
 
-        // Create threads for multiplication
-        for (int i = 0; i < 2; i++) {
-            threads.add(new CounterThread(c, CounterThread.Operation.MULT));
+        for (Thread t : threads) {
+            t.start();
         }
-
-        // Start all threads
-        for (Thread t : threads) t.start();
-
-        // Wait for all threads to finish
+        
         for (Thread t : threads) {
             try {
                 t.join();
