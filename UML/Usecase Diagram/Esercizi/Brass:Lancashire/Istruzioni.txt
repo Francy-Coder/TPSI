@@ -1,0 +1,27 @@
+Modellazione UML di Brass: Lancashire
+
+Scenario
+Siamo nel pieno della Rivoluzione Industriale in Inghilterra. I giocatori vestono i panni di imprenditori che costruiscono industrie, sviluppano reti di trasporto e commerciano risorse come carbone, ferro e cotone per ottenere il massimo profitto. L'economia è dinamica e influenzata dalla domanda del mercato, dalla disponibilità di materie prime e dalle scelte strategiche degli altri giocatori.
+In questa simulazione, diversi attori interagiscono tra loro:
+I giocatori, che costruiscono industrie, sviluppano collegamenti e gestiscono le risorse finanziarie.
+Il mercato, che può essere interno o estero, regola la disponibilità e il prezzo delle risorse.
+La banca, che fornisce prestiti ai giocatori con l'effetto di ridurre i loro introiti futuri.
+Il sistema di punteggio, che assegna punti in base alle industrie costruite, ai collegamenti e ai profitti accumulati.
+Le industrie, che possono essere miniere di carbone, fonderie di ferro, fabbriche tessili o cantieri navali.
+La rete di trasporto, che collega le città e permette lo scambio di merci e risorse.
+Il governatore, che può intervenire modificando le condizioni di mercato, come chiudere l’accesso al mercato estero.
+I giocatori possono svolgere diverse azioni durante la partita:
+Costruire un’industria, selezionando un tipo di stabilimento e pagando le risorse necessarie. In alcuni casi, se i requisiti sono soddisfatti, si può ottenere un bonus di produzione.
+Costruire un collegamento (canale o ferrovia) per espandere la rete commerciale e connettere nuove industrie.
+Vendere cotone, ma solo se il mercato ha domanda sufficiente. Se il mercato estero è aperto, si possono ottenere bonus di vendita, ma il governatore potrebbe chiuderlo in qualsiasi momento.
+Acquistare risorse come carbone o ferro, scegliendo tra il mercato o le proprie industrie. Se si possiedono miniere o fonderie, è possibile utilizzare la propria produzione a costo ridotto.
+Prendere un prestito, ricevendo denaro immediato ma riducendo i profitti futuri.
+Guadagnare introiti, in base agli investimenti e alle connessioni sviluppate.
+Calcolare il punteggio finale, considerando le industrie attive e i collegamenti stabiliti.
+Alcune azioni sono collegate tra loro:
+Per costruire un’industria, è necessario prima acquistare le risorse.
+Per vendere cotone, è essenziale verificare la disponibilità del mercato.
+La costruzione di un collegamento richiede la verifica della disponibilità dei materiali.
+Prendere un prestito comporta la riduzione degli introiti futuri.
+Alla fine della partita, il punteggio è determinato dalle industrie attive e dalle reti di trasporto.
+
