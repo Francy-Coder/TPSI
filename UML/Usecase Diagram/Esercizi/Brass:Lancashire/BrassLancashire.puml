@@ -1,0 +1,36 @@
+@startuml
+left to right direction
+skinparam packageStyle rectangle
+
+actor "Giocatore" as Giocatore
+actor "Mercato" as Mercato
+actor "Banca" as Banca
+actor "Governatore" as Governatore
+
+usecase "Costruire Industria" as UC_CostruireIndustria
+usecase "Costruire Collegamento" as UC_CostruireCollegamento
+usecase "Vendere Cotone" as UC_VendereCotone
+usecase "Acquistare Risorse" as UC_AcquistareRisorse
+usecase "Prendere Prestito" as UC_PrenderePrestito
+usecase "Guadagnare Introiti" as UC_GuadagnareIntroiti
+usecase "Calcolare Punteggio Finale" as UC_CalcolarePunteggio
+
+Giocatore --> UC_CostruireIndustria
+Giocatore --> UC_CostruireCollegamento
+Giocatore --> UC_VendereCotone
+Giocatore --> UC_AcquistareRisorse
+Giocatore --> UC_PrenderePrestito
+Giocatore --> UC_GuadagnareIntroiti
+Giocatore --> UC_CalcolarePunteggio
+
+UC_CostruireIndustria .u.> UC_AcquistareRisorse : <<include>>
+UC_CostruireCollegamento .u.> UC_AcquistareRisorse : <<include>>
+
+UC_VendereCotone .d.> Mercato : "Verifica domanda" <<include>>
+UC_AcquistareRisorse .d.> Mercato : "Verifica disponibilità" <<include>>
+
+UC_VendereCotone .> Governatore : "Mercato estero chiuso" <<extend>>
+UC_AcquistareRisorse .> Governatore : "Modifica disponibilità" <<extend>>
+
+UC_PrenderePrestito --> Banca : "Richiede denaro"
+@enduml
