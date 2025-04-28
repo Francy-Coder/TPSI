@@ -1,0 +1,60 @@
+Primi esercizi di programmazione concorrente
+Semafori, sleep, join, synchronized
+Accesso singolo a una risorsa condivisa (base) (usare solo semafori)
+Obiettivo: Far accedere uno alla volta più thread a una risorsa condivisa (es. stampante).
+Descrizione: Hai una stampante condivisa da N thread (UtenteStampante) che vogliono stampare D documenti.
+N >= 10
+D >= 2
+D > Usa un semaforo con un solo permesso per fare in modo che solo un thread per volta possa accedere alla stampante.
+Si stampi chiaramente nei seguenti momenti
+quando un thread è in attesa della risorsa condivisa
+Es: [nomeThread] attende risorsa
+quando un thread entra nella risorsa condivisa
+Es: [nomeThread] inizia la stampa [nomeDoc]
+quando un thread esce dalla risorsa condivisa
+Es: [nomeThread] finisce la stampa di [nomeDoc]
+Alla fine del programma si stampi il numero di documenti stampati e il tempo totale di esecuzione(in ms)
+Suggerimenti:
+Ogni thread simula la stampa con una sleep randomico.
+tempo: [500, 1500] ms
+Il metodo System.currentTimeMillis() può aiutare a calcolare il tempo di esecuzione
+NOTE:
+Il programma DEVE terminare, come sempre.
+La risorsa condivisa e i thread, come impostazione architetturale, sono classi separate.
+Parcheggio limitato:
+Descrizione: Scrivi un programma che simuli un parcheggio con 3 posti disponibili. Ci sono 10 auto che vogliono parcheggiare. Il parcheggio non è controllato da una sbarra automatica.
+Ogni auto, all’infinito e stampando un messaggio esplicativo per ogni fase:
+Attende che si liberi un posto.
+Entra e "rimane parcheggiata" (usa sleep randomica per simulare il tempo di posteggio).
+in questo messaggio si visualizzino il numero di posteggi rimasti
+Esce e libera il posto.
+in questo messaggio si visualizzino il numero di posteggi rimasti
+Il parcheggio rimane aperto per un tempo massimo X e dopo questo tempo tutte le macchine devono essere interrotte.
+Spunti di riflessione:
+Quanti thread mi posso permettere di accettare nella zona critica in questo specifico contesto?
+C’è solo un modo per implementare questo semplice sistema?
+Come posso stampare il numero di posteggi liberi? Come posso modellare questa richiesta?
+Suggerimenti:
+La documentazione della classe Semaphore potrebbe aiutare.
+Catena di montaggio
+Una catena di montaggio ha due fasi:
+Assemblaggio: max 2 operai contemporaneamente
+Collaudo: max 1 operaio contemporaneamente
+Scrivi un programma concorrente dove ogni Operaio:
+Prova ad accedere alla fase di assemblaggio
+Successivamente, prova ad accedere al collaudo
+Stampa messaggi coerenti in ogni fase
+Testare il sistema con un numero di Operai > 2 ed assicurarsi che i messaggi siano corretti circa le specifiche
+Catena di Thread
+Scrivi un programma concorrente dove ogni thread visualizza tutti i numeri da X Y.
+I thread sono in catena quindi un thread non può stampare la sua sequenza prima che il suo precedente abbia finito di stampare la sua.
+Catena di Thread V2
+Estendiamo l’esercizio (4). In questa versione vogliamo che i Thread rimangano in catena ma:
+Ogni thread stampa 10 numeri
+Il primo Thread della catena parte da 1
+Il successivo Thread parte a stampare dal numero successivo all’ultimo stampato.
+esempio:
+ThreadA: 1 2 3 4 5 6 7 8 9 10
+ThreadB: 11 12 13 14 15 16 17 18 19 20
+eccetera
+Note: Come possiamo far conoscere l’ultimo numero stampato da un thread al suo successivo?
