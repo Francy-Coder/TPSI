@@ -9,7 +9,6 @@ class TicketManager {
 
     public synchronized boolean purchaseTicket(Buyer buyer) {
         if (availableTickets.get() > 0) {
-            // Simula un piccolo ritardo nell'acquisto per mostrare la concorrenza
             try {
                 Thread.sleep(100);
             } catch (InterruptedException e) {
