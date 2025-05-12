@@ -1,0 +1,85 @@
+Esercizi di sincronizzazione tra thread
+Parte 1
+
+
+1. Gestione dei Biglietti Online 🎟️	2
+2. Gestione di un parcheggio 🚗	2
+3. Barriera sincronizzata 🚧	3
+4. The Bouncer 💂 (HARD)	3
+5. Stazione ferroviaria 🚅 (HAARD!!)	4
+Note generali per la risoluzione degli esercizi:	4
+
+
+Gestione dei Biglietti Online 🎟️
+Descrizione:
+Simulare la gestione dei biglietti per eventi online. Ci sono più acquirenti che cercano di acquistare biglietti per un evento simultaneamente. L'obiettivo è garantire che i biglietti non vengano venduti più del numero disponibile.
+Requisiti:
+Classe TicketManager
+Questa classe deve tenere traccia del numero totale di biglietti acquistabili e permettere ai compratori di acquistare un biglietto. La procedura di acquisto può terminare positivamente se c’è almeno un biglietto da vendere o negativamente se i biglietti si sono esauriti.
+Classe Buyer
+Questa classe simula un ipotetico compratore online che cerca, in concorrenza con altri compratori, di comprare un biglietto.
+Si testi il sistema con 10 biglietti disponibili e 20 compratori.
+
+Gestione di un parcheggio 🚗
+Descrizione:
+Simulare la gestione di un parcheggio con 5 posti e 10 auto che cercano di accedervi in concorrenza.
+Il parcheggio deve tenere traccia di quanti posti sono disponibili in ogni momento e permettere l’entrata di una macchina.
+Ogni auto ha il seguente comportamento:
+Guida per un tempo random tra i 2 e i 5 secondi (simulabile con Thread.sleep(randomValue))
+Tenta di accedere al parcheggio:
+Se riesce ad accedere al parcheggio ci rimane per un tempo randomico tra 3 e 8 secondi
+Se non riesce ad accedere al parcheggio rimane in attesa fino a che un’altra auto libererà un posto.
+
+Barriera sincronizzata 🚧
+Descrizione:
+Simula una barriera sincronizzata che ferma tutti i thread in arrivo fino al raggiungimento di una soglia fissata, per poi svegliarli tutti insieme.
+Requisiti:
+Classe BarrieraSincronizzata:
+Questa classe deve tenere traccia di quanti thread sono in attesa sulla barriera e del valore massimo di thread gestibili
+Fino a che il numero di thread in attesa sulla barriera è minore della soglia fissata bisognerà fermare i thread. ⬇️
+Quando il numero di thread in attesa supera la soglia si dovranno svegliare tutti i thread in attesa sulla barriera.
+Classe BarrierThread:
+Questa classe ha il seguente comportamento:
+Lavora per un tempo randomico tra i 2 e i 5 secondi (simulabile con Thread.sleep(randomVal))
+raggiunge la barriera
+Una volta svegliato stampa a schermo il suo nome seguito dalla stringa “ riprende a lavorare”.
+The Bouncer 💂 (HARD)
+Descrizione:
+Simula un locale notturno con un buttafuori che controlla l'ingresso dei clienti. Il buttafuori permette l'accesso solo a clienti che soddisfano un requisito di età minima e garantisce che il numero massimo di persone all'interno del club non superi una certa capacità massima.
+
+Vincoli:
+
+Il buttafuori permette l'ingresso solo a clienti che hanno almeno 18 anni. 🔞
+Se il cliente non rispetta questo parametro non dovrà entrare nel locale (si termini il thread)
+Il numero massimo di clienti all'interno del club non deve superare una certa capacità massima. Se un cliente rispetta i limiti d’età ma il locale è pieno dovrà aspettare.
+I clienti che riescono ad entrare trascorrono un tempo casuale all'interno del club prima di uscire.
+
+NOTE esercizio 4:
+Per semplicità, si consideri solo l’implementazione della classe buttafuori e della classe utente. Il buttafuori conosce la capacità massima del locale e le persone attualmente all’interno.
+
+Stazione ferroviaria 🚅 (HAARD!!)
+Descrizione:
+Scrivi un’applicazione concorrente Java che simula l’interazione tra una stazione ferroviaria composta da N binari e un certo numero T di treni.
+Requisiti:
+Classe Stazione:
+La stazione è identificata da un nome identificativo e deve gestire un certo numero di binari N.
+Classe Treno:
+Un treno è definito da un codice numerico identificativo e dalla stazione di destinazione
+Il suo comportamento è il seguente:
+Viaggia verso la stazione. Il tempo del viaggio è randomico nell’intervallo [2, 5] secondi.
+Cerca di ottenere un binario libero
+Se lo ottiene ci rimarrà per un tempo randomico nell’intervallo [2, 5] secondi
+Se non ci sono binari liberi dovrà essere messo in attesa
+Una volta ottenuto un binario libero e passato il periodo di attesa, il treno ripartirà liberando il binario assegnato al punto (ii)
+NOTE esercizio 5:
+Si potrebbero simulare i binari con una classe apposita o con un vettore di boolean. La seconda soluzione è più veloce, la prima è concettualmente più attinente ai principi OOP.
+
+
+
+Note generali per la risoluzione degli esercizi: 
+Tutti questi esercizi sono adattamenti del problema classico del Buffer Limitato, pertanto sono risolvibili usando esclusivamente wait(), notify()/notifyAll() e synchronized.
+Si ricorda che è preferibile non lasciare ai Thread l’onore della gestione della sincronizzazione, tale responsabilità è di solito lasciata alla risorsa condivisa.
+Prima di scrivere il codice, si analizzino le richieste identificando le entità che dovranno diventare thread e quelle che invece saranno le risorse condivise, cioè classi monitor Java.
+Prima di scrivere il codice, si identifichino le condizioni per le quali i thread dovranno essere fermati e risvegliati.
+
+
