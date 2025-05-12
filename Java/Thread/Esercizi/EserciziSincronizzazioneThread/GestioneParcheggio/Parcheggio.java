@@ -20,7 +20,7 @@ class Parcheggio {
             return true;
         } else {
             System.out.println(auto.getNome() + " in attesa di un posto libero...");
-            postiDisponibili.acquire(); // Attende finché non si libera un posto
+            postiDisponibili.acquire();
             System.out.println(auto.getNome() + " finalmente entra nel parcheggio dopo l'attesa. Posti disponibili: " + 
                              (postiTotali - postiDisponibili.availablePermits()));
             return true;
@@ -35,44 +35,5 @@ class Parcheggio {
 
     public int getPostiDisponibili() {
         return postiDisponibili.availablePermits();
-    }
-}
-
-class Auto extends Thread {
-    private Parcheggio parcheggio;
-    private Random random = new Random();
-    private String nome;
-
-    public Auto(String nome, Parcheggio parcheggio) {
-        super(nome);
-        this.nome = nome;
-        this.parcheggio = parcheggio;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    @Override
-    public void run() {
-        try {
-            // Simula la guida prima di arrivare al parcheggio
-            int tempoGuida = 2000 + random.nextInt(3000); // 2-5 secondi
-            Thread.sleep(tempoGuida);
-            
-            // Tenta di entrare nel parcheggio
-            boolean entrata = parcheggio.entra(this);
-            
-            if (entrata) {
-                // Simula il tempo di permanenza nel parcheggio
-                int tempoPermanenza = 3000 + random.nextInt(5000); // 3-8 secondi
-                Thread.sleep(tempoPermanenza);
-                
-                // Esce dal parcheggio
-                parcheggio.esci(this);
-            }
-        } catch (InterruptedException e) {
-            Thread.currentThread().interrupt();
-        }
     }
 }
