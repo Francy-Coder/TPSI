@@ -14,7 +14,6 @@ class Club {
     }
 
     public boolean tryEnter(Client client) throws InterruptedException {
-        // Controllo dell'età
         if (client.getAge() < minAge) {
             System.out.println(client.getName() + " ha solo " + client.getAge() + " anni. INGRESSO NEGATO!");
             return false;
@@ -22,15 +21,13 @@ class Club {
 
         System.out.println(client.getName() + " (" + client.getAge() + " anni) sta cercando di entrare...");
 
-        // Prova ad acquisire un permesso (non bloccante)
         if (capacity.tryAcquire()) {
             System.out.println(client.getName() + " è entrato nel club. Clienti presenti: " + (maxCapacity - capacity.availablePermits()));
             return true;
         }
 
-        // Se il club è pieno, aspetta
         System.out.println(client.getName() + " deve aspettare, il club è pieno...");
-        capacity.acquire(); // Aspetta finché non si libera un posto
+        capacity.acquire();
         System.out.println(client.getName() + " finalmente entra nel club dopo l'attesa. Clienti presenti: " + (maxCapacity - capacity.availablePermits()));
         return true;
     }
@@ -41,49 +38,8 @@ class Club {
     }
 
     public void partyTime(Client client) throws InterruptedException {
-        int partyTime = 3000 + random.nextInt(7000); // 3-10 secondi
+        int partyTime = 3000 + random.nextInt(7000); 
         Thread.sleep(partyTime);
-    }
-}
-
-class Client extends Thread {
-    private Club club;
-    private int age;
-    private String name;
-
-    public Client(String name, int age, Club club) {
-        super(name);
-        this.name = name;
-        this.age = age;
-        this.club = club;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public int getAge() {
-        return age;
-    }
-
-    @Override
-    public void run() {
-        try {
-            // Simula il tempo per arrivare al club
-            Thread.sleep(new Random().nextInt(3000));
-
-            boolean entered = club.tryEnter(this);
-            
-            if (entered) {
-                // Goditi il club
-                club.partyTime(this);
-                
-                // Esci dal club
-                club.exit(this);
-            }
-        } catch (InterruptedException e) {
-            Thread.currentThread().interrupt();
-        }
     }
 }
 
