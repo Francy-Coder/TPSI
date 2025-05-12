@@ -10,7 +10,6 @@ public class OnlineTicketSystem {
         System.out.println("Numero di acquirenti: " + TOTAL_BUYERS);
         System.out.println("-----------------------------------");
 
-        // Creazione e avvio degli acquirenti
         for (int i = 1; i <= TOTAL_BUYERS; i++) {
             new Buyer("Acquirente-" + i, ticketManager).start();
         }
