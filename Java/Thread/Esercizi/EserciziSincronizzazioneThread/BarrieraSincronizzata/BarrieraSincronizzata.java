@@ -32,17 +32,14 @@ class BarrierThread extends Thread {
     @Override
     public void run() {
         try {
-            // Simula lavoro prima della barriera (2-5 secondi)
             int tempoLavoro = 2000 + random.nextInt(3000);
             Thread.sleep(tempoLavoro);
             
             System.out.println(getName() + " ha completato il lavoro iniziale e raggiunge la barriera");
             System.out.println("Thread in attesa: " + barriera.getThreadInAttesa());
             
-            // Attende alla barriera
             barriera.attendi();
-            
-            // Riprende dopo la barriera
+          
             System.out.println(getName() + " riprende a lavorare");
             
         } catch (InterruptedException e) {
