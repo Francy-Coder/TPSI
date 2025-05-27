@@ -13,9 +13,9 @@ public class BandMember extends Thread {
         isPlaying = true;
         while (isPlaying) {
             System.out.println(suono);
-            try {
+            try{
                 sleep(delay);
-            } catch (InterruptedException e) {
+            }catch (InterruptedException e) {
                 System.out.println(e.getMessage());
             }
         }
