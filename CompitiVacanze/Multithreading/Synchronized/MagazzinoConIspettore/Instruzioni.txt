@@ -20,32 +20,5 @@ Ogni 3 secondi accede al magazzino
 Se la somma di tutti gli elementi del magazzino è maggiore o uguale a X, stampa il valore in console e resetta il magazzino.
 Altrimenti mette il numero la somma attuale degli elementi nel primo slot del magazzino.
 
-Sfilata di moda 💃
 
-Descrizione
-Gestisci i modelli e le modelle impegnati in una sfilata di moda.
-Ogni persona deve passare prima dal camerino, che ha posti limitati, prima di accedere alla passerella per sfilare. Il tempo per  cambiarsi è randomico
-Una volta acceduto alla passerella, che ha posti limitati per sfilare, sfila per un certo tempo randomico per poi liberare la passerella.
-I modelli che non possono accedere al camerino e/o alla passerella dovranno aspettare il loro turno.
-Il comportamento di un modello è:
-Cerca di accedere al camerino, se ce la fa si cambia usando un tempo random
-Accede alla passerella, se può, altrimenti aspetta
-Sfila per un tempo randomico X
-Libera la passerella
-Libera il camerino.
 
-Concerto di Sting 🌶️🌶️
-Un gruppo di 200 persone deve comprare i biglietti per il concerto di Sting. 
-Al botteghino sono a disposizione solo 100 biglietti e vi sono solo 5 persone che li vendono. Perciò solo 5 persone alla volta potranno comprare i biglietti e solo se ve ne sono ancora a disposizione. 
-Si simuli la suddetta situazione in Java, utilizzando un Monitor (costrutto synchronized di java). Ogni compratore sarà rappresentato da un Thread.
-Suggerimento: Il thread compratore, dopo aver atteso un tempo casuale, cercherà di comprare il biglietto e si metterà in attesa se altre 5 persone sono già al botteghino; quindi controllerà la variabile contenente il numero di biglietti e la decrementerà.
-
-Pista di gokart 🌶️🌶️🌶️🌶️
-Otto amici decidono di fare una gara di velocità. Scelgono quindi di andare a correre sulla pista di go-kart che si trova a pochi chilometri di distanza dalla loro città. Il gestore della pista, per questioni di sicurezza, ha stabilito che possono correre solo 4 kart per volta e che ciascun pilota può effettuare al più 15 giri. Inoltre prima di salire sul kart il pilota deve indossare una tuta protettiva ed un casco. L’accesso agli spogliatoi per indossare la tuta è consentito a 2 persone per volta.
-Scrivere un programma che simuli la gara di velocità rispettando i vincoli imposti dal gestore della pista. Ciascun pilota, rappresentato da un thread, intraprende le seguenti azioni:
-entra negli spogliatoi per indossare la tuta ed il casco (se non c’è posto attende)
-sale sul kart e entra in pista (se in pista ci sono già 4 kart attende che uno dei piloti termini i giri a disposizione)
- effettua 15 giri di pista
- lascia la pista
- torna negli spogliatoi per indossare i propri indumenti
-Utilizzare il costrutto synchronized per gestire l’accesso concorrente alle risorse condivise.
