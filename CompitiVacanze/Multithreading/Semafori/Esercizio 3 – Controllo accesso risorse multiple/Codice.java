@@ -1,20 +1,20 @@
 import java.util.concurrent.Semaphore;
 
 public class SalaPostazioni {
-    private static final int NUMERO_POSTAZIONI = 3;
-    private static final int NUMERO_THREAD = 10;
-    private static Semaphore semaforoPostazioni = new Semaphore(NUMERO_POSTAZIONI);
+    private static final int numeroPostazioni = 3;
+    private static final int numeroThread = 10;
+    private static Semaphore semaforoPostazioni = new Semaphore(numeroPostazioni);
     
     public static void main(String[] args) {
-        System.out.println("Sala con " + NUMERO_POSTAZIONI + " postazioni - Inizio simulazione");
+        System.out.println("Sala con " + numeroPostazioni + " postazioni - Inizio simulazione");
        
-        Thread[] threads = new Thread[NUMERO_THREAD];
-        for (int i = 0; i < NUMERO_THREAD; i++) {
+        Thread[] threads = new Thread[numeroThread];
+        for (int i = 0; i < numeroThread; i++) {
             threads[i] = new Thread(new Lavoratore(i + 1));
             threads[i].start();
         }
         
-        for (int i = 0; i < NUMERO_THREAD; i++) {
+        for (int i = 0; i < numeroThread; i++) {
             try {
                 threads[i].join();
             } catch (InterruptedException e) {
