@@ -1,0 +1,17 @@
+Requisito comune: ogni esercizio deve essere implementato usando solo la classe Semaphore. Non usare synchronized, wait o notify.
+
+Esercizio 1 – Stampa alternata tra due thread
+Due thread devono stampare alternatamente i numeri da 1 a 20, uno stampa i dispari, l'altro i pari. Usare due semafori per garantire l'alternanza corretta.
+
+Esercizio 2 – Buffer circolare con produttore e consumatore
+Implementare un buffer circolare di dimensione fissa con un produttore e un consumatore. Il produttore inserisce numeri nel buffer, il consumatore li rimuove. Usare tre semafori: uno per il conteggio degli spazi pieni, uno per quelli vuoti, e uno per l'accesso in mutua esclusione al buffer.
+
+Esercizio 3 – Controllo accesso risorse multiple
+Simulare una sala con 3 postazioni di lavoro accessibili da 10 thread.
+ 		Ogni thread può accedere solo quando almeno una postazione è libera.
+Usare un semaforo per controllare l’accesso e garantire che al massimo thread lavorino contemporaneamente.
+
+Esercizio 4 – Barriera di sincronizzazione
+5 thread devono arrivare a un punto comune e poi proseguire insieme solo quando tutti sono arrivati.
+Implementare una barriera semplice con semafori.
+(Suggerimento: un semaforo per il conteggio e uno per la liberazione.)
