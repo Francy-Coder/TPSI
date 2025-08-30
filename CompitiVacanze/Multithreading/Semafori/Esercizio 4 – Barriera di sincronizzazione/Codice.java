@@ -1,7 +1,7 @@
 import java.util.concurrent.Semaphore;
 
 public class BarrieraSemplice {
-    private static final int NUMERO_THREAD = 5;
+    private static final int numeroThread= 5;
     private static int contatore = 0;
     
     private static Semaphore semaforoContatore = new Semaphore(1);
@@ -9,7 +9,7 @@ public class BarrieraSemplice {
     private static Semaphore semaforoBarriera = new Semaphore(0);
     
     public static void main(String[] args) {
-        System.out.println("Barriera per " + NUMERO_THREAD + " thread - Inizio");
+        System.out.println("Barriera per " + numeroThread+ " thread - Inizio");
         
         Thread[] threads = new Thread[NUMERO_THREAD];
         for (int i = 0; i < NUMERO_THREAD; i++) {
