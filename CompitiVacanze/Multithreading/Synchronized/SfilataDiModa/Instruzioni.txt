@@ -1,0 +1,12 @@
+Descrizione
+  
+Gestisci i modelli e le modelle impegnati in una sfilata di moda.
+Ogni persona deve passare prima dal camerino, che ha posti limitati, prima di accedere alla passerella per sfilare. Il tempo per  cambiarsi è randomico
+Una volta acceduto alla passerella, che ha posti limitati per sfilare, sfila per un certo tempo randomico per poi liberare la passerella.
+I modelli che non possono accedere al camerino e/o alla passerella dovranno aspettare il loro turno.
+Il comportamento di un modello è:
+Cerca di accedere al camerino, se ce la fa si cambia usando un tempo random
+Accede alla passerella, se può, altrimenti aspetta
+Sfila per un tempo randomico X
+Libera la passerella
+Libera il camerino.
