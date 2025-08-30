@@ -58,14 +58,14 @@ class PistaGokart {
                              " (" + tempoGiro + "ms)");
             
             if (random.nextInt(100) < 10) {
-                System.out.println("⚡ " + nomePilota + " fa un sorpasso!");
+                System.out.println(nomePilota + " fa un sorpasso!");
             }
             if (random.nextInt(100) < 5) { 
-                System.out.println("💥 " + nomePilota + " perde un po' di tempo in una curva!");
+                System.out.println(nomePilota + " perde un po' di tempo in una curva!");
             }
         }
         
-        System.out.println("🏁 " + nomePilota + " HA COMPLETATO TUTTI I " + giriMassimi + " GIRI!");
+        System.out.println(nomePilota + " HA COMPLETATO TUTTI I " + giriMassimi + " GIRI!");
     }
  
     public synchronized void tornaSpogliatoio(String nomePilota) throws InterruptedException {
