@@ -2,9 +2,9 @@ import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
 class PistaGokart {
-    private final int MAX_KART_IN_PISTA = 4;
-    private final int MAX_PERSONE_SPOGLIATOI = 2;
-    private final int GIRI_MASSIMI = 15;
+    private final int maxKartPista = 4;
+    private final int maxPersoneSpogliatoi = 2;
+    private final int giriMassimi = 15;
     
     private int kartInPista = 0;
     private int personeInSpogliatoi = 0;
@@ -12,7 +12,7 @@ class PistaGokart {
     private final Random random = new Random();
 
     public synchronized void entraSpogliatoio(String nomePilota) throws InterruptedException {
-        while (personeInSpogliatoi >= MAX_PERSONE_SPOGLIATOI) {
+        while (personeInSpogliatoi >= maxPersoneSpogliatoi) {
             System.out.println(nomePilota + " aspetta: spogliatoi pieni (" + personeInSpogliatoi + "/2)");
             wait();
         }
@@ -32,7 +32,7 @@ class PistaGokart {
     }
     
     public synchronized void entraInPista(String nomePilota) throws InterruptedException {
-        while (kartInPista >= MAX_KART_IN_PISTA) {
+        while (kartInPista >= maxKartPista) {
             System.out.println(nomePilota + " aspetta: pista piena (" + kartInPista + "/4)");
             wait();
         }
@@ -50,11 +50,11 @@ class PistaGokart {
     public void effettuaGiri(String nomePilota) throws InterruptedException {
         System.out.println(nomePilota + " inizia i giri!");
         
-        for (int giro = 1; giro <= GIRI_MASSIMI; giro++) {
+        for (int giro = 1; giro <= giriMassimi; giro++) {
             int tempoGiro = random.nextInt(300) + 200;
             Thread.sleep(tempoGiro);
             
-            System.out.println(nomePilota + " - Giro " + giro + "/" + GIRI_MASSIMI + 
+            System.out.println(nomePilota + " - Giro " + giro + "/" + giriMassimi + 
                              " (" + tempoGiro + "ms)");
             
             if (random.nextInt(100) < 10) {
@@ -65,11 +65,11 @@ class PistaGokart {
             }
         }
         
-        System.out.println("🏁 " + nomePilota + " HA COMPLETATO TUTTI I " + GIRI_MASSIMI + " GIRI!");
+        System.out.println("🏁 " + nomePilota + " HA COMPLETATO TUTTI I " + giriMassimi + " GIRI!");
     }
  
     public synchronized void tornaSpogliatoio(String nomePilota) throws InterruptedException {
-        while (personeInSpogliatoi >= MAX_PERSONE_SPOGLIATOI) {
+        while (personeInSpogliatoi >= maxPersoneSpogliatoi) {
             System.out.println(nomePilota + " aspetta per togliersi tuta e casco (" + personeInSpogliatoi + "/2)");
             wait();
         }
@@ -124,7 +124,7 @@ class Pilota extends Thread {
 
 public class GaraGokart {
     public static void main(String[] args) throws InterruptedException {
-        System.out.println("🏎️ === INIZIO GARA DI GO-KART === 🏎️");
+        System.out.println("=== INIZIO GARA DI GO-KART ===");
         System.out.println("Piloti: 8 amici");
         System.out.println("Massimo in pista: 4 kart");
         System.out.println("Massimo negli spogliatoi: 2 persone");
