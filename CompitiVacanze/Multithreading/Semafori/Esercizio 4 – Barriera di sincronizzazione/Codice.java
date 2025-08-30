@@ -11,13 +11,13 @@ public class BarrieraSemplice {
     public static void main(String[] args) {
         System.out.println("Barriera per " + numeroThread+ " thread - Inizio");
         
-        Thread[] threads = new Thread[NUMERO_THREAD];
-        for (int i = 0; i < NUMERO_THREAD; i++) {
+        Thread[] threads = new Thread[numeroThread];
+        for (int i = 0; i < numeroThread; i++) {
             threads[i] = new Thread(new Partecipante(i + 1));
             threads[i].start();
         }
         
-        for (int i = 0; i < NUMERO_THREAD; i++) {
+        for (int i = 0; i < numeroThread; i++) {
             try {
                 threads[i].join();
             } catch (InterruptedException e) {
@@ -46,10 +46,10 @@ public class BarrieraSemplice {
                 semaforoContatore.acquire(); 
                 contatore++;
                 
-                if (contatore == NUMERO_THREAD) {
-                    System.out.println("=== TUTTI I THREAD SONO ARRIVATI! ===");
+                if (contatore == numeroThread) {
+                    System.out.println("=== Tutti i thread sono arrivati ===");
                     System.out.println("Sblocco di tutti i thread...");
-                    semaforoBarriera.release(NUMERO_THREAD); 
+                    semaforoBarriera.release(numeroThread); 
                 }
                 semaforoContatore.release();
                 
