@@ -1,0 +1,5 @@
+Concerto di Sting 🌶️🌶️
+Un gruppo di 200 persone deve comprare i biglietti per il concerto di Sting. 
+Al botteghino sono a disposizione solo 100 biglietti e vi sono solo 5 persone che li vendono. Perciò solo 5 persone alla volta potranno comprare i biglietti e solo se ve ne sono ancora a disposizione. 
+Si simuli la suddetta situazione in Java, utilizzando un Monitor (costrutto synchronized di java). Ogni compratore sarà rappresentato da un Thread.
+Suggerimento: Il thread compratore, dopo aver atteso un tempo casuale, cercherà di comprare il biglietto e si metterà in attesa se altre 5 persone sono già al botteghino; quindi controllerà la variabile contenente il numero di biglietti e la decrementerà.
