@@ -1,13 +1,13 @@
 import java.util.concurrent.Semaphore;
 
 public class BufferCircolareSemplice {
-    private static final int DIMENSIONE = 5;
-    private static int[] buffer = new int[DIMENSIONE];
+    private static final int dimensione = 5;
+    private static int[] buffer = new int[dimensione];
     private static int posizioneInserisci = 0;
     private static int posizionePrendi = 0;
     
     private static Semaphore semaforoElementiPronti = new Semaphore(0);
-    private static Semaphore semaforoSpaziLiberi = new Semaphore(DIMENSIONE);
+    private static Semaphore semaforoSpaziLiberi = new Semaphore(dimensione);
     private static Semaphore semaforoProtezione = new Semaphore(1);
     
     public static void main(String[] args) {
@@ -44,7 +44,7 @@ public class BufferCircolareSemplice {
                     buffer[posizioneInserisci] = numero;
                     System.out.println("Prodotto: " + numero + " in posizione " + posizioneInserisci);
        
-                    posizioneInserisci = (posizioneInserisci + 1) % DIMENSIONE;
+                    posizioneInserisci = (posizioneInserisci + 1) % dimensione;
       
                     semaforoProtezione.release();
            
@@ -73,7 +73,7 @@ public class BufferCircolareSemplice {
                     int numeroPreso = buffer[posizionePrendi];
                     System.out.println("Consumato: " + numeroPreso + " da posizione " + posizionePrendi);
                     
-                    posizionePrendi = (posizionePrendi + 1) % DIMENSIONE;
+                    posizionePrendi = (posizionePrendi + 1) % dimensione;
                  
                     semaforoProtezione.release();
                   
