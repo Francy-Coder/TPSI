@@ -99,7 +99,7 @@ class Pilota extends Thread {
         try {
             int tempoArrivo = random.nextInt(2000) + 500;
             Thread.sleep(tempoArrivo);
-            System.out.println("🚗 " + nome + " arriva alla pista di go-kart");
+            System.out.println(nome + " arriva alla pista di go-kart");
           
             pista.entraSpogliatoio(nome);
             pista.esciSpogliatoio(nome);
