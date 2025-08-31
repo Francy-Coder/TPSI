@@ -1,5 +1,4 @@
 import java.util.Random;
-import java.util.concurrent.TimeUnit;
 
 class PistaGokart {
     private final int maxKartPista = 4;
