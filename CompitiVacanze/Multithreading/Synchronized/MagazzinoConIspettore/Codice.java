@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-class Magazzino {
+public class Magazzino {
     private final int capacita;
     private final List<Integer> contenuto;
     private boolean ispettoreInAccesso = false;
@@ -69,7 +69,7 @@ class Magazzino {
     }
 }
 
-class Produttore extends Thread {
+public class Produttore extends Thread {
     private final Magazzino magazzino;
     private final Random random = new Random();
 
@@ -91,7 +91,7 @@ class Produttore extends Thread {
     }
 }
 
-class Consumatore extends Thread {
+public class Consumatore extends Thread {
     private final Magazzino magazzino;
     private final Random random = new Random();
 
@@ -112,7 +112,7 @@ class Consumatore extends Thread {
     }
 }
 
-class Ispettore extends Thread {
+public class Ispettore extends Thread {
     private final Magazzino magazzino;
 
     public Ispettore(Magazzino magazzino) {
