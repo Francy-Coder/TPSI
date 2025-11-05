@@ -48,7 +48,7 @@ Valore e il relativo tipo delle espressioni:
 15. falsefalse, string
 16. object
 17. object
-18.
+18. string
 19. Infinity, number
 20. NaN
 21. number
