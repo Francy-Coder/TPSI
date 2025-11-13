@@ -34,7 +34,8 @@ function tick(){
 
 function start(){
     if(!tomato.running){
-        //setInterval(cosaFare, ogniQuantoFarlo) => esegue p1 tra p2 ONESHOT
+        //setInterval(cosaFare, ogniQuantoFarlo)
+            //setTimeout(p1,p2) => esegue p1 tra p2 ONESHOT
             //setInterval => esegui paramentro 1 ogni paramentro 2 ms
         tomato.timer = setInterval(tick, 1000); 
         tomato.running = true;
@@ -45,7 +46,7 @@ function pause(){
     //fa partire un timer di 5 minuti
     tomato.seconds = 5 * 60
     clearInterval(tomato.timer)
-    showTimer()
+    showTimer();
 }
 
 function reset(){
@@ -55,6 +56,6 @@ function reset(){
     showTimer();
 }
 
-pauseBtn.addEventListener("clicl", pause)
+pauseBtn.addEventListener("click", pause)
 resetBtn.addEventListener("click", reset)
 startBtn.addEventListener("click", start)
