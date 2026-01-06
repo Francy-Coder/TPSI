@@ -1,0 +1,108 @@
+Life Points Manager - Button Cloning
+
+Usa la tua soluzione della V2 (esercizio 23).
+
+Nuova feature:
+Double-click su un bottone esistente → crea un clone di quell'entità
+
+Il clone deve avere:
+Gli stessi LP dell'originale al momento del clone
+Un nuovo ID univoco
+
+Vincoli tecnici:
+Gli ID devono rimanere univoci anche dopo 100 clonazioni
+Devi poter clonare anche i cloni
+I cloni devono comportarsi esattamente come le entità originali (possono essere danneggiati, possono essere clonati a loro volta)
+
+Domande da porsi:
+Come garantisco che ogni nuovo bottone abbia un ID mai usato prima?
+Come recupero i Life Points dell'entità cliccata?
+Se ho già una funzione per creare bottoni, posso riusarla per i cloni?
+
+Bonus (opzionale):
+Impedisci la clonazione di entità con LP <= 0
+Impedisci la clonazione di entità disabilitate (in fase di reset)
+Aggiungi un'animazione quando appare il clone
+Resource Generator Simulator
+Contesto: Stai creando un sistema di generatori che producono risorse automaticamente nel tempo. Ogni generatore lavora in modo indipendente e si ferma quando raggiunge la capacità massima.
+
+HTML:
+Crea un file HTML con UN SOLO elemento:
+<div id="generator-container"></div>
+TUTTO il resto (generatori, bottoni, testi, ecc) verrà gestito da JS
+
+Crea esattamente 4 generatori con queste caratteristiche:
+ID
+Simbolo
+Velocità
+Capacità
+g1
+🔥
+2000ms
+20
+g2
+⚡
+3000ms
+20
+g3
+💎
+4000ms
+20
+g4
+🌾
+5000ms
+20
+
+Cosa deve fare ogni generatore:
+Visualizzazione:
+Ogni generatore è un bottone che mostra: [SIMBOLO ATTUALI/MAX]
+Esempio: [🔥 7/20] significa "generatore fuoco con 7 risorse su 20"
+All'inizio tutti partono da [SIMBOLO 0/20]
+
+Produzione automatica:
+Ogni generatore produce automaticamente 1 risorsa ogni X millisecondi (vedi tabella)
+Usa setInterval() per la produzione automatica
+Quando produce, aggiorna il testo del bottone
+
+Gestione capacità:
+Quando un generatore raggiunge 20/20, deve smettere di produrre
+Il bottone rimane visibile ma non produce più
+
+Raccolta risorse:
+Click sul bottone di un generatore → raccogli tutte le sue risorse
+Le risorse tornano a 0/20
+La produzione automatica riparte immediatamente
+
+Vincoli tecnici:
+IMPORTANTE - Non puoi:
+Avere 4 variabili separate tipo fireCount, energyCount, gemCount, wheatCount
+Avere 4 funzioni separate tipo produceFire(), produceEnergy(), ecc.
+Duplicare la logica di produzione 4 volte
+
+Devi invece:
+Usare UNA struttura dati che contenga lo stato di tutti i generatori
+Scrivere funzioni parametriche che funzionano per qualsiasi generatore dato il suo ID
+Trovare il modo di fermare/riattivare la produzione, che è automatica.
+Domande guida (rispondi PRIMA di scrivere codice)
+
+Struttura dati:
+Se devo salvare info su 4 generatori (simbolo, risorse attuali, capacità, velocità, interval), quale struttura uso?
+Un array? Un oggetto? Perché?
+
+Gestione produzione:
+Esiste un modo in JS per gestire automaticamente questo aspetto? Come lo posso inserire nel mio codice e, soprattutto, come lo inserisco in modo tale da poterlo fermare/riattivare a comando?
+
+Produzione:
+Scrivo una funzione produceFire() per il fuoco, produceEnergy() per l'energia... oppure una sola produce(generatorId)?
+Come faccio a recuperare i dati del generatore dentro la funzione?
+
+Raccolta:
+Quando clicco per raccogliere, come faccio a sapere quale generatore ho cliccato?
+Come faccio a far ripartire la produzione se era ferma?
+Output atteso
+
+Una pagina con 4 bottoni che:
+Producono risorse automaticamente a velocità diverse
+Mostrano il conteggio aggiornato in tempo reale
+Si fermano automaticamente quando pieni
+Ripartono quando cliccati (dopo aver raccolto)
