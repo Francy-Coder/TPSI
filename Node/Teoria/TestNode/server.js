@@ -37,8 +37,6 @@ server.listen(PORT, HOSTNAME, () => {
     console.log("servizio ONLINE" + HOSTNAME + ":" + PORT); //Se non esegue, restituisce un errore (EADDRRINUSE)
 }) //Riferimento al server creato precedentemente
 
-
-
 /*Terminale
 cntrl + J <-- Apre terminale
 cntrl + C <-- Ferma esecuzione terminale
