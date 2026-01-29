@@ -40,7 +40,7 @@ server.listen(PORT, HOSTNAME, () => {
 }) //Riferimento al server creato precedentemente
 
 /*Terminale
-cntrl + J <-- Apre terminale
+cntrl + J <-- Apre terminale | Creo 2 terminali bash, dove chiamo il primo "server" e il secondo "client"
 cntrl + C <-- Ferma esecuzione terminale
 
 * Sul Server:
