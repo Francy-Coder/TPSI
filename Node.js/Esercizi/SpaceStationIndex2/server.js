@@ -10,12 +10,16 @@ app.use((req, res, next) => {
   next();
 });
 
+const randomInRange = (min, max) => Math.random() * (max - min) + min;
+const randomPick = (arr) => arr[Math.floor(Math.random() * arr.length)];
+
 // Stato mutabile del sistema
 let systemState = {
   experiments: [
-    { id: "EXP-771", name: "Protein Crystal Growth", status: "active", priority: "high", power: 4.2 },
-    { id: "EXP-803", name: "Zero-G Combustion", status: "active", priority: "medium", power: 3.1 },
-    { id: "EXP-904", name: "Plant Growth Study", status: "standby", priority: "low", power: 0 }
+    { id: "EXP-771", name: "Protein Crystal Growth", status: randomPick(["active", "standby"]), priority: randomPick(["high", "medium", "low"]), power: 4.2 },
+    { id: "EXP-803", name: "Zero-G Combustion", status: randomPick(["active", "standby"]), priority: randomPick(["high", "medium", "low"]), power: 3.1 },
+    { id: "EXP-904", name: "Plant Growth Study", status: randomPick(["active", "standby"]), priority: randomPick(["high", "medium", "low"]), power: randomInRange(30, 56).toFixed(2) },
+    { id: "EXP-954", name: "Plant vs Zombie Study", status: randomPick(["active", "standby"]), priority: randomPick(["high", "medium", "low"]), power: randomInRange(0, 50).toFixed(2) }
   ],
   commandQueue: [],
   lastCommandId: 0,
@@ -46,23 +50,23 @@ app.get('/commands', (req, res) => {
 // POST: Invia nuovo comando
 app.post('/commands', (req, res) => {
   const { action, experimentId, reason } = req.body;
-  
+
   // Validazione
   if (!action || !experimentId) {
-    return res.status(400).json({ 
-      success: false, 
-      error: "Missing required fields: action, experimentId" 
+    return res.status(400).json({
+      success: false,
+      error: "Missing required fields: action, experimentId"
     });
   }
-  
+
   const experiment = systemState.experiments.find(e => e.id === experimentId);
   if (!experiment) {
-    return res.status(404).json({ 
-      success: false, 
-      error: `Experiment ${experimentId} not found` 
+    return res.status(404).json({
+      success: false,
+      error: `Experiment ${experimentId} not found`
     });
   }
-  
+
   // Crea comando
   systemState.lastCommandId++;
   const command = {
@@ -73,9 +77,9 @@ app.post('/commands', (req, res) => {
     status: "pending",
     timestamp: new Date().toISOString()
   };
-  
+
   systemState.commandQueue.push(command);
-  
+
   res.status(201).json({
     success: true,
     command: command,
@@ -86,22 +90,22 @@ app.post('/commands', (req, res) => {
 // PUT: Esegui comando (cambia stato esperimento)
 app.put('/commands/:commandId/execute', (req, res) => {
   const { commandId } = req.params;
-  
+
   const commandIndex = systemState.commandQueue.findIndex(c => c.id === commandId);
   if (commandIndex === -1) {
-    return res.status(404).json({ 
-      success: false, 
-      error: `Command ${commandId} not found` 
+    return res.status(404).json({
+      success: false,
+      error: `Command ${commandId} not found`
     });
   }
-  
+
   const command = systemState.commandQueue[commandIndex];
   const experiment = systemState.experiments.find(e => e.id === command.experimentId);
-  
+
   // Esegui azione
   let newStatus;
   let powerChange = 0;
-  
+
   if (command.action === "shutdown") {
     if (experiment.status === "active") {
       powerChange = -experiment.power;
@@ -120,19 +124,19 @@ app.put('/commands/:commandId/execute', (req, res) => {
     experiment.power = 0;
     newStatus = "emergency";
   } else {
-    return res.status(400).json({ 
-      success: false, 
-      error: `Unknown action: ${command.action}` 
+    return res.status(400).json({
+      success: false,
+      error: `Unknown action: ${command.action}`
     });
   }
-  
+
   experiment.status = newStatus;
   systemState.powerUsed += powerChange;
   command.status = "executed";
-  
+
   // Rimuovi dalla coda
   systemState.commandQueue.splice(commandIndex, 1);
-  
+
   res.json({
     success: true,
     command: command,
@@ -145,18 +149,18 @@ app.put('/commands/:commandId/execute', (req, res) => {
 // DELETE: Annulla comando pendente
 app.delete('/commands/:commandId', (req, res) => {
   const { commandId } = req.params;
-  
+
   const commandIndex = systemState.commandQueue.findIndex(c => c.id === commandId);
   if (commandIndex === -1) {
-    return res.status(404).json({ 
-      success: false, 
-      error: `Command ${commandId} not found` 
+    return res.status(404).json({
+      success: false,
+      error: `Command ${commandId} not found`
     });
   }
-  
+
   const command = systemState.commandQueue[commandIndex];
   systemState.commandQueue.splice(commandIndex, 1);
-  
+
   res.json({
     success: true,
     message: `Command ${commandId} cancelled`,
@@ -168,25 +172,25 @@ app.delete('/commands/:commandId', (req, res) => {
 app.put('/experiments/:experimentId', (req, res) => {
   const { experimentId } = req.params;
   const { priority } = req.body;
-  
+
   const experiment = systemState.experiments.find(e => e.id === experimentId);
   if (!experiment) {
-    return res.status(404).json({ 
-      success: false, 
-      error: `Experiment ${experimentId} not found` 
+    return res.status(404).json({
+      success: false,
+      error: `Experiment ${experimentId} not found`
     });
   }
-  
+
   if (!["low", "medium", "high"].includes(priority)) {
-    return res.status(400).json({ 
-      success: false, 
-      error: "Priority must be: low, medium, or high" 
+    return res.status(400).json({
+      success: false,
+      error: "Priority must be: low, medium, or high"
     });
   }
-  
+
   const oldPriority = experiment.priority;
   experiment.priority = priority;
-  
+
   res.json({
     success: true,
     experiment: experiment,
