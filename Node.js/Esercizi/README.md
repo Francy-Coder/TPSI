@@ -1,4 +1,5 @@
 # Ricordarsi
-- cntrl + j (+ eventuale cd nelle cartelle)
+- cntrl + j
+- cambiare il terminale in bash (+ eventuale cd nelle cartelle)
 - npm install express
 - node server.js
