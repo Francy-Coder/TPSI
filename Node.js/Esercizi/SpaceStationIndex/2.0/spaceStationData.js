@@ -1,17 +1,21 @@
-const BASE_URL = "http://localhost:3000";
+const BASE_URL = "http://localhost:3000"
+const MONITOR_REFRESH_MS = 5000
 
+/**
+ * 1) chiamare station/status
+ */
 async function getPanels() {
     const response = await fetch(BASE_URL + "/station/status");
 
     if (response.ok) {
         const json = await response.json()
-        // console.log(json);
+        //        console.log(json);
         const panels = json.power.solar.panels
         const totalPanels = panels.length
-        // console.log(panels);
+        //      console.log(panels);
 
         //Trova solo quelli operativi
-        let activePanels = 0;
+        let activePanels = 0
         for (const panel of panels) {
             if (panel.status === "nominal") {
                 activePanels++;
@@ -20,106 +24,153 @@ async function getPanels() {
 
         const percentage = (activePanels / totalPanels) * 100;
 
-        console.log(json);
-        console.log(panels);
-
         return {
             totalPanels: totalPanels,
             operationalPanels: activePanels,
             percentage: percentage
         }
-    }else{
-        console.log("Errore HTTP:" + response.status);
+
     }
 }
 
-async function printResults() {
-    const results = await getPanels();
-    //console.clear();
-    console.log(results);
-}
-
-printResults();
-
-async function getDegradedModules() {
-    const response = await fetch(BASE_URL + "/station/modules");
-    if (!response.ok) return;
-
+//Task 2
+async function trovaModuliDegradati() {
+    const response = await fetch(BASE_URL + '/station/modules');
     const data = await response.json();
-    const degradedModules = [];
 
-    for (const module of data.modules) {
-        if (module.systems && module.systems.subsystems) {
+    const moduliProblematici = [];
+
+    for (let i = 0; i < data.modules.length; i++) {
+        const modulo = data.modules[i];
+
+        // Controlla se il modulo ha subsystems ... perchè è importante?
+        if (modulo.systems && modulo.systems.subsystems) {
             const degradedSystemNames = [];
-            
-            for (const sub of module.systems.subsystems) {
-                if (sub.status !== "nominal") {
-                    degradedSystemNames.push(sub.name);
+
+            for (let j = 0; j < modulo.systems.subsystems.length; j++) {
+                const subsystem = modulo.systems.subsystems[j];
+                if (subsystem.status !== 'nominal') {
+                    degradedSystemNames.push(subsystem.name);
                 }
             }
 
+            // Se ha trovato almeno un sistema degradato, aggiungi il modulo
             if (degradedSystemNames.length > 0) {
-                degradedModules.push({
-                    moduleId: module.id,
+                moduliProblematici.push({
+                    moduleId: modulo.id,
                     degradedSystemNames: degradedSystemNames
                 });
             }
         }
     }
-    return degradedModules;
+
+    return moduliProblematici;
 }
 
-async function getLabConsumption() {
-    const response = await fetch(BASE_URL + "/station/modules");
-    if (!response.ok) return;
-
+//Task 3
+async function calcolaConsumiEsperimenti() {
+    const response = await fetch(BASE_URL + '/station/modules');
     const data = await response.json();
+
     let totalPower = 0;
     let totalCooling = 0;
     let activeExperimentsCount = 0;
 
-    for (const module of data.modules) {
-        if (module.type === "laboratory" && module.experiments) {
-            for (const exp of module.experiments) {
-                if (exp.status === "active") {
-                    totalPower += exp.resourceConsumption.power;
-                    totalCooling += exp.resourceConsumption.cooling;
-                    activeExperimentsCount++;
+    for (let i = 0; i < data.modules.length; i++) {
+        const modulo = data.modules[i];
+
+        // è un esperimento di lab?
+        if (modulo.type === 'laboratory' && modulo.experiments) {
+            for (let j = 0; j < modulo.experiments.length; j++) {
+                const experiment = modulo.experiments[j];
+
+                if (experiment.status === 'active') {
+                    totalPower = totalPower + experiment.resourceConsumption.power;
+                    totalCooling = totalCooling + experiment.resourceConsumption.cooling;
+                    activeExperimentsCount = activeExperimentsCount + 1;
                 }
             }
         }
     }
 
-async function checkEnergyEmergency() {
-    const statusRes = await fetch(BASE_URL + "/station/status");
-    const modulesRes = await fetch(BASE_URL + "/station/modules");
-    
-    if (!statusRes.ok || !modulesRes.ok) return;
+    return {
+        totalPower: totalPower,
+        totalCooling: totalCooling,
+        activeExperimentsCount: activeExperimentsCount
+    };
+}
 
-    const statusData = await statusRes.json();
-    const modulesData = await modulesRes.json();
+//Task4
+async function gestioneEnergiaCritica() {
+    const statusResponse = await fetch(BASE_URL + '/station/status');
+    const statusData = await statusResponse.json();
 
     const reserves = statusData.power.reserves;
 
-    if (reserves < 95) {
-        const activeExps = [];
-        
-        for (const module of modulesData.modules) {
-            if (module.experiments) {
-                for (const exp of module.experiments) {
-                    if (exp.status === "active") {
-                        activeExps.push({
-                            experimentId: exp.id,
-                            name: exp.name,
-                            powerConsumption: exp.resourceConsumption.power
-                        });
-                    }
+    if (reserves >= 95) {
+        return {
+            message: 'Energia sufficiente, nessuna azione necessaria'
+        };
+    }
+
+    const modulesResponse = await fetch(BASE_URL + '/station/modules');
+    const modulesData = await modulesResponse.json();
+
+    const esperimentiAttivi = [];
+
+    for (let i = 0; i < modulesData.modules.length; i++) {
+        const modulo = modulesData.modules[i];
+
+        if (modulo.type === 'laboratory' && modulo.experiments) {
+            for (let j = 0; j < modulo.experiments.length; j++) {
+                const experiment = modulo.experiments[j];
+
+                if (experiment.status === 'active') {
+                    esperimentiAttivi.push({
+                        experimentId: experiment.id,
+                        name: experiment.name,
+                        powerConsumption: experiment.resourceConsumption.power
+                    });
                 }
             }
         }
-        return activeExps;
-    } else {
-        return { message: "Energia sufficiente, nessuna azione necessaria" };
+    }
+
+    return esperimentiAttivi;
+}
+
+//Creo una funzione che si occupa solo della stampa del separazione delle responsabilitù
+async function monitorStation() {
+    console.clear();
+    console.log("---MONITORING STATION---");
+
+    //Perchè questo try catch? che errori intercetta?
+    try {
+        //Res task1
+        console.log("--- Task 1 results ---");
+        const results = await getPanels();
+        console.log(results);
+
+        //res task2
+        console.log("--- Task 2 results ---");
+        const degradedMods = await trovaModuliDegradati()
+        console.log(degradedMods);
+
+        //res task3
+        console.log("--- Task 3 results ---");
+        const expConsumption = await calcolaConsumiEsperimenti()
+        console.log(expConsumption);
+
+        //res task4
+        console.log("--- Task 4 results ---");
+        const stationEnergy = await gestioneEnergiaCritica();
+        console.log(stationEnergy);
+    } catch (error) {
+        //Tutte le JS excpetion hanno sempre due campi: name e message
+        console.log("ERRORE di rete: ", error.message);
     }
 }
-}
+
+//Lancio subito un monitoraggio e poi ogni X secondi lo ripropongo...
+monitorStation()
+setInterval(monitorStation, MONITOR_REFRESH_MS)
