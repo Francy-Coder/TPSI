@@ -1,3 +1,8 @@
+/**
+ * Esercizio: Space Station API
+ * - Link: https://docs.google.com/document/d/1VpunndgU4lxjCwhUNWLZjQTXMh6PqNY_Ak59ZkpwvJ4/edit?tab=t.0
+ */
+
 const BASE_URL = "http://localhost:3000"
 const MONITOR_REFRESH_MS = 5000
 
