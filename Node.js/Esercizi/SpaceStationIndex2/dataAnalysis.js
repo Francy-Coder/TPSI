@@ -1,6 +1,7 @@
 /**
  * Esercizio: Space Station API 2
  * - Link: https://docs.google.com/document/d/1X7fgZ6R_79Tq9YJw0z91PTuJXOzw6uzOvrxkEDxJ5hc/edit?tab=t.0
+ * - Note: Non Completo
  */
 
 async function powerCalculation() {
