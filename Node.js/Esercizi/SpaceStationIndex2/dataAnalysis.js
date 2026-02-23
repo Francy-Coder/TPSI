@@ -49,7 +49,6 @@ async function shutdownAllLowExperiments(){
 
     for (const exp of experiments) {
         if (exp.status === "active" && exp.priority === "low") {
-            //fare la post a POST /commands
             const postResponse = await fetch("http://localhost:3000/commands", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
