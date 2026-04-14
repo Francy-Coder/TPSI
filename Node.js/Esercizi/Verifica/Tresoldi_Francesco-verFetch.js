@@ -25,7 +25,7 @@ async function mostraTuttiMinerali(){
 async function cercaMineralePerId(){
     let response = await fetch(BASE_URL + "/minerali/999");
 
-    if(response.status = "404"){
+    if(response.status === 404){
         response = await fetch(BASE_URL + "/minerali/5");
     }
 
@@ -60,7 +60,7 @@ async function contaMineraliCategoria(){
     let tipo = "cristalli";
     let response = await fetch(BASE_URL + "/minerali/categoria/" + tipo);
 
-    if(response.status === "404"){
+    if(response.status === 404){
         tipo = "metalli";
         response = await fetch(BASE_URL + "/minerali/categoria/" + tipo);
     }
